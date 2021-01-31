@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "esnext",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "outDir": "out"
+    },
+
+    "files": [
+        "src/index.ts"
+    ],
+
+    "include": [
+        "src/@types/*.d.ts",
+        "src/commands/slash/*.ts"
+    ]
+}
