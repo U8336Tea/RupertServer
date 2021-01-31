@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "esnext",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "outDir": "../../../out"
+    },
+
+    "include": [
+        "./*.ts",
+        "../../@types/*.d.ts",
+        "../common.ts"
+    ]
+}
