@@ -7,7 +7,7 @@ This project requires a list of configuration files:
 - configs/{SERVER ID}/default.json
 - configs/{SERVER ID}/{CHANNEL ID}.json
 
-More will be discussed in the next session. In addition, the following files are necessary:
+More will be discussed in the next section. In addition, the following files are necessary:
 - tls/cert.pem: the full chain certificate
 - tls/key.pem: the key
 
@@ -42,7 +42,7 @@ This is the configuration for the entire server. Format:
 ```json
 {
     "responderName": "bvg", // Currently this does nothing.
-    "timeoutInterval": 0000000, // The time in milliseconds which the responder can be idle before it destroys itself
+    "timeoutInterval": 1000000, // The time in milliseconds which the responder can be idle before it destroys itself
     
     "rules": [ // The rules to which the responder responds, without being mentioned.
         { "type": "Role", "id": "" },
