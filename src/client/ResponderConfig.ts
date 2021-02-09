@@ -3,7 +3,7 @@ import { ruleFromObject } from "../config.js";
 
 export interface ResponderConfig {
     responderName: string;
-    timeoutInterval: number;
+    timeoutInterval?: number;
 
     rules: Rule[];
     blacklist: Rule[];
