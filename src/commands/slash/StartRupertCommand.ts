@@ -55,7 +55,7 @@ export default class StartRupertCommand extends SlashCommand {
                 return;
             }
 
-            config.responderName = vocabulary;
+            config.vocabulary = vocabulary;
         }
 
         startResponder(config, ctx.channelID);
