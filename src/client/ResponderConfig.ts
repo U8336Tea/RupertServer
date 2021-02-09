@@ -18,7 +18,7 @@ export function getResponderConfig(json: string): ResponderConfig {
     for (const rule of configObject["blacklist"] || []) blacklist.push(ruleFromObject(rule));
 
     return {
-        vocabulary: configObject["responderName"] || "bvg",
+        vocabulary: configObject["vocabulary"] || "bvg",
         timeoutInterval: configObject["timeoutInterval"],
         rules: rules,
         blacklist: blacklist
