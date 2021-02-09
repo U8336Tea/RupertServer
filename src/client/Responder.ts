@@ -14,25 +14,29 @@ export declare interface Responder {
     on(event: 'ready', handler: () => void): this;
     once(event: 'ready', handler: () => void): this;
     emit(event: 'ready'): boolean;
+    off(event: 'ready', handler: () => void): this;
 
     on(event: 'log', handler: (argument: string) => void): this;
     once(event: 'log', handler: (argument: string) => void): this;
     emit(event: 'log', argument: string): boolean;
+    off(event: 'log', handler: (argument: string) => void): this;
 
     on(event: 'timeout', handler: () => void): this;
     once(event: 'timeout', handler: () => void): this;
     emit(event: 'timeout'): boolean;
+    off(event: 'destroy', handler: () => void): this;
 
     on(event: 'destroy', handler: () => void): this;
     once(event: 'destroy', handler: () => void): this;
     emit(event: 'destroy'): boolean;
+    off(event: 'destroy', handler: () => void): this;
 }
 
 export class Responder extends EventEmitter {
     targetRules: Rule[];
     blacklistRules: Rule[];
 
-    private _destroyed: boolean;
+    private _destroyed: boolean = false;
     get destroyed() { return this._destroyed }
 
     private client: Client;
