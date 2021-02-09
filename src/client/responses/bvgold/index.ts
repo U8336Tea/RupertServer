@@ -34,12 +34,6 @@ export default class implements MessageProvider {
             // Time spent "looking up the copypasta"
             await sleep(8000);
             return constants.TROLL_PASTA;
-        } else if (content.match(/http(s)?:\/\//g)) {
-            if (rand(128) == 0) return randElement(constants.RESPONSES);
-            return randElement(constants.LINK_RESPONSE);
-        } else if (content.includes("proof")) {
-            if (rand(128) == 0) return randElement(constants.INITIAL_MESSAGES); // Shake it up a little.
-            return randElement(constants.PROOF_RESPONSE);
         } else {
             if (rand(64) == 0) return randElement(constants.INITIAL_MESSAGES);
             return randElement(constants.RESPONSES);
