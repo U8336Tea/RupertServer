@@ -48,7 +48,8 @@ export const RESPONSES = [
     ">>rob 463808762197704715",
     "I did not read. Due to the fact that I didn't read your argument, it is now invalid. You have nothing to prove against my argument and as a result of this I am considered the winner of this argument. Have a good day seething and coping.",
     "Too long. Did not read! :rofl:",
-    "Not interested."
+    "Not interested.",
+    "Yeah. Uh huh. Real funny."
 ]
 
 export const LINK_RESPONSE = [
