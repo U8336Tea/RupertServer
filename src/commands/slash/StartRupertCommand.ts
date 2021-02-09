@@ -46,7 +46,7 @@ export default class StartRupertCommand extends SlashCommand {
         if (rand(64) == 0) ctx.send(this.response);
 
         let config = findConfig(ctx.guildID, ctx.channelID);
-        const vocabulary = ctx.options[this.vocabularyKey].toString();
+        const vocabulary = ctx.options[this.vocabularyKey]?.toString();
         if (vocabulary) {
             if (!vocabValid(vocabulary)) {
                 const member = ctx.member.user;
