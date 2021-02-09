@@ -50,3 +50,10 @@ export function startResponder(config: ResponderConfig, channelID: string) {
     responder.on("destroy", () => global.responders.delete(channelID));
     return responder.listen(global.discord.channels.resolve(channelID) as TextChannel);
 }
+
+export function vocabValid(path: fs.PathLike): boolean {
+    const str = path.toString();
+    if (str.indexOf("\0") !== -1) return false;
+    if (!/^[a-zA-Z0-9_!-\?]+$/.test(str)) return false;
+    return true;
+}
