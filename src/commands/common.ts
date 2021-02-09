@@ -42,7 +42,7 @@ export function findConfig(guildID: string, channelID: string): ResponderConfig 
 }
 
 export function startResponder(config: ResponderConfig, channelID: string) {
-    const { default: ResponseProvider } = require(`../client/responses/${config.responderName}/index.js`);
+    const { default: ResponseProvider } = require(`../client/responses/${config.vocabulary}/index.js`);
 
     const responder = new Responder(global.discord, new ResponseProvider(), config.timeoutInterval, config.rules, config.blacklist);
     global.responders.set(channelID, responder);
