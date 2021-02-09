@@ -3,7 +3,6 @@ import fs from "fs";
 import type { TextChannel } from "discord.js";
 
 import { RuleMember } from "../Rule.js";
-import BVG from "../client/responses/bvg/bvg.js";
 import { Responder } from "../client/Responder.js";
 import { getResponderConfig } from "../client/ResponderConfig.js";
 import type { ResponderConfig } from "../client/ResponderConfig.js";
@@ -42,8 +41,10 @@ export function findConfig(guildID: string, channelID: string): ResponderConfig 
     return getResponderConfig(file);
 }
 
-export function startResponder(config: ResponderConfig, channelID: string): Promise<void> {
-    const responder = new Responder(global.discord, new BVG(), config.timeoutInterval, config.rules, config.blacklist);
+export function startResponder(config: ResponderConfig, channelID: string) {
+    const { default: ResponseProvider } = require(`../client/responses/${config.responderName}/index.js`);
+
+    const responder = new Responder(global.discord, new ResponseProvider(), config.timeoutInterval, config.rules, config.blacklist);
     global.responders.set(channelID, responder);
     responder.on("log", console.log);
     responder.on("destroy", () => global.responders.delete(channelID));

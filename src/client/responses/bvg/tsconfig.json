@@ -4,16 +4,11 @@
         "target": "esnext",
         "moduleResolution": "node",
         "esModuleInterop": true,
-        "outDir": "out"
+        "outDir": "../../../../../out"
     },
 
-    "files": [
-        "src/index.ts"
-    ],
-
     "include": [
-        "src/@types/*.d.ts",
-        "src/commands/slash/*.ts",
-        "src/client/responses/*/*.ts"
+        "./*.ts",
+        "../../@types/*.d.ts"
     ]
 }

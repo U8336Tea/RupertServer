@@ -2,7 +2,7 @@ import { Rule } from "../Rule.js";
 import { ruleFromObject } from "../config.js";
 
 export interface ResponderConfig {
-    responderName?: string;
+    responderName: string;
     timeoutInterval: number;
 
     rules: Rule[];
@@ -18,7 +18,7 @@ export function getResponderConfig(json: string): ResponderConfig {
     for (const rule of configObject["blacklist"] || []) blacklist.push(ruleFromObject(rule));
 
     return {
-        responderName: configObject["responderName"],
+        responderName: configObject["responderName"] || "bvg",
         timeoutInterval: configObject["timeoutInterval"],
         rules: rules,
         blacklist: blacklist
