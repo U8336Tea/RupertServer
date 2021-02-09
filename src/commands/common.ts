@@ -1,4 +1,12 @@
+import fs from "fs";
+
+import type { TextChannel } from "discord.js";
+
 import { RuleMember } from "../Rule.js";
+import BVG from "../client/responses/bvg/bvg.js";
+import { Responder } from "../client/Responder.js";
+import { getResponderConfig } from "../client/ResponderConfig.js";
+import type { ResponderConfig } from "../client/ResponderConfig.js";
 
 export function hasPermission(id: string): boolean {
     const guild = global.discord.guilds.resolve(global.config.slashConfig.allowGuild);
@@ -14,4 +22,30 @@ export function hasPermission(id: string): boolean {
     }
 
     return false;
+}
+
+export function findConfig(guildID: string, channelID: string): ResponderConfig {
+    function load(url: URL): string {
+        return fs.existsSync(url)            ?
+            fs.readFileSync(url).toString()  :
+            null;
+    }
+
+    const dir = new URL(`file://${process.cwd()}/configs/`);
+    let file: string;
+
+    if (file = load(new URL(`${guildID}/${channelID}.json`, dir))) return getResponderConfig(file);
+    if (file = load(new URL(`${guildID}/default.json`, dir))) return getResponderConfig(file);
+
+    file = load(new URL("default.json", dir));
+    if (!file) throw new Error("No config files found."); // TODO: Actual error maybe? idk
+    return getResponderConfig(file);
+}
+
+export function startResponder(config: ResponderConfig, channelID: string): Promise<void> {
+    const responder = new Responder(global.discord, new BVG(), config.timeoutInterval, config.rules, config.blacklist);
+    global.responders.set(channelID, responder);
+    responder.on("log", console.log);
+    responder.on("destroy", () => global.responders.delete(channelID));
+    return responder.listen(global.discord.channels.resolve(channelID) as TextChannel);
 }
