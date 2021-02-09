@@ -51,7 +51,7 @@ export function startResponder(config: ResponderConfig, channelID: string) {
     return responder.listen(global.discord.channels.resolve(channelID) as TextChannel);
 }
 
-export function vocabValid(path: fs.PathLike): boolean {
+export function pathSafe(path: fs.PathLike): boolean {
     const str = path.toString();
     if (str.indexOf("\0") !== -1) return false;
     if (!/^[a-zA-Z0-9_!\-\?]+$/.test(str)) return false;

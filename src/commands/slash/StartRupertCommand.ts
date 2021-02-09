@@ -2,7 +2,7 @@ import type { TextChannel } from "discord.js";
 import { CommandOptionType, SlashCommand } from "slash-create";
 import type { SlashCreator, CommandContext } from "slash-create";
 
-import { findConfig, hasPermission, startResponder, vocabValid } from "../common.js";
+import { findConfig, hasPermission, startResponder, pathSafe } from "../common.js";
 import { rand } from "../../common.js";
 
 const VOCABULARY_KEY = "name";
@@ -48,7 +48,7 @@ export default class StartRupertCommand extends SlashCommand {
         let config = findConfig(ctx.guildID, ctx.channelID);
         const vocabulary = ctx.options[VOCABULARY_KEY]?.toString();
         if (vocabulary) {
-            if (!vocabValid(vocabulary)) {
+            if (!pathSafe(vocabulary)) {
                 const member = ctx.member.user;
                 console.log(`Possible directory traversal attempt from ${member.username}#${member.discriminator}`);
                 console.log(`Path: ${vocabulary}`);
