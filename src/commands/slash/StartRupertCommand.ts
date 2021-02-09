@@ -52,6 +52,7 @@ export default class StartRupertCommand extends SlashCommand {
                 const member = ctx.member.user;
                 console.log(`Possible directory traversal attempt from ${member.username}#${member.discriminator}`);
                 console.log(`Path: ${vocabulary}`);
+                ctx.send("Invalid vocabulary.", { ephemeral: true });
                 return;
             }
 
