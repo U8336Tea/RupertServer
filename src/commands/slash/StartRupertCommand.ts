@@ -5,9 +5,10 @@ import type { SlashCreator, CommandContext } from "slash-create";
 import { findConfig, hasPermission, startResponder, vocabValid } from "../common.js";
 import { rand } from "../../common.js";
 
+const VOCABULARY_KEY = "name";
+
 export default class StartRupertCommand extends SlashCommand {
     private readonly response = "https://tenor.com/view/mr-krabs-singing-spongebob-christmas-mr-krabs-gif-19652806";
-    private readonly vocabularyKey = "name";
 
     constructor(creator: SlashCreator) {
         super(creator, {
@@ -16,7 +17,7 @@ export default class StartRupertCommand extends SlashCommand {
             options: [
                 {
                     type: CommandOptionType.STRING,
-                    name: "name",
+                    name: VOCABULARY_KEY,
                     description: "The name of the person Mr. Crap sings to! 🥰",
                     required: false
                 }
@@ -46,7 +47,7 @@ export default class StartRupertCommand extends SlashCommand {
         if (rand(64) == 0) ctx.send(this.response);
 
         let config = findConfig(ctx.guildID, ctx.channelID);
-        const vocabulary = ctx.options[this.vocabularyKey]?.toString();
+        const vocabulary = ctx.options[VOCABULARY_KEY]?.toString();
         if (vocabulary) {
             if (!vocabValid(vocabulary)) {
                 const member = ctx.member.user;
