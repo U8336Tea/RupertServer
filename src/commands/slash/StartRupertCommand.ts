@@ -43,7 +43,6 @@ export default class StartRupertCommand extends SlashCommand {
             return;
         }
 
-        ctx.send("startig ruppert", {ephemeral: true});
         if (rand(64) == 0) ctx.send(this.response);
 
         let config = findConfig(ctx.guildID, ctx.channelID);
@@ -60,6 +59,7 @@ export default class StartRupertCommand extends SlashCommand {
             config.vocabulary = vocabulary;
         }
 
+        ctx.send("startig ruppert", {ephemeral: true});
         startResponder(config, ctx.channelID);
     }
 }
