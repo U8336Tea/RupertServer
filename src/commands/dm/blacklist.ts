@@ -19,7 +19,7 @@ export default function(message: Message, command: string[]) {
 
     ruleType = ruleType[0].toUpperCase() + ruleType.substr(1).toLowerCase();
     const type = RuleType[ruleType];
-    if (!type) {
+    if (type == null) {
         message.reply("Invalid rule type.");
         return;
     }
