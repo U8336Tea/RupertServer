@@ -61,7 +61,7 @@ export default class implements MessageProvider {
             const snowflake = SnowflakeUtil.generate(date);
 
             const messages = await this.channel.messages.fetch(
-                {before: snowflake},
+                { around: snowflake },
                 false);
             
             if (messages.size == 0) return await this.fallback.response(message);
