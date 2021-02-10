@@ -39,6 +39,14 @@ oauth(slashConfig.appID, slashConfig.secret, "applications.commands").then(token
       .startServer();
 });
 
+global.discord.ws.on("READY", async (data, _) => {
+    const channels = global.discord.channels;
+    for (const channel of data["private_channels"]) {
+        if (channels.cache.has(channel.id)) return;
+        await channels.fetch(channel.id, true);
+    }
+});
+
 global.discord.on("ready", () => {
     console.log("Discord ready.");
     global.discord.user.setStatus("invisible");
