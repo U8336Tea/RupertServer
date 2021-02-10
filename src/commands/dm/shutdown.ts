@@ -11,8 +11,9 @@ export default function(message: Message, command: string[]) {
     if (command.length < 2) {
         for (const id of global.responders.keys()) {
             destroy(id);
-            message.reply("All Ruperts stopped.");
         }
+
+        message.reply("All Ruperts stopped.");
     } else {
         if (!destroy(command[1])) {
             message.reply("Rupert not running");
