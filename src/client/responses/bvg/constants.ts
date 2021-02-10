@@ -17,7 +17,9 @@ export const INITIAL_MESSAGES = [
     "Dear @G\\*mers, You're scared of being ownaged by me.",
     "G\\*MERS! GET READY TO BE DEMOLISHED!",
     "The invention of g\\*ming and its consequences have been a disaster for the human race.",
-    "G\\*mers are all rude and anti-social (sociopaths)."
+    "G\\*mers are all rude and anti-social (sociopaths).",
+    "I HAVE ARRIVED TO MAKE YOU COPE, SEETHE, AND REPEAT!",
+    "Wew.? More like Poo."
 ]
 
 export const RESPONSES = [
@@ -56,7 +58,8 @@ export const LINK_RESPONSE = [
     "Virus links.",
     "Do you mind NOT sending IP grabbers?",
     "I am contacting a moderator to remove your IP grabber.",
-    "aaaaaaaaaaaa story of undertale"
+    "aaaaaaaaaaaa story of undertale",
+    "I'm not clicking that. It's a virus."
 ]
 
 export const PROOF_RESPONSE = [
