@@ -1,6 +1,6 @@
 import { Channel, TextChannel, Message } from "discord.js";
 
-import { pathSafe, findConfig, startResponder } from "../common.js";
+import start from "../startCommand.js";
 
 const USAGE = "start <channel id> [vocabulary name]"
 
@@ -24,36 +24,9 @@ export default function(message: Message, command: string[]) {
         return;
     }
 
-    const perms = channel.permissionsFor(global.discord.user);
-    if (!(perms.has("VIEW_CHANNEL") && perms.has("SEND_MESSAGES"))) {
-        message.reply("rupper can't talk in this channel");
-        return;
-    }
+    let vocabulary = null;
+    if (length >= 3) vocabulary = command[2];
 
-    let config = findConfig(channel.guild.id, channel.id);
-    if (length >= 3) {
-        const vocabulary = command[2];
-        if (!pathSafe(vocabulary)) {
-            const member = message.author;
-            console.log(`Possible directory traversal attempt from ${member.username}#${member.discriminator}`);
-            console.log(`Path: ${vocabulary}`);
-            message.reply("Invalid vocabulary.");
-            return;
-        }
-
-        config.vocabulary = vocabulary;
-    }
-
-    try {
-        startResponder(config, channel.id);
-        message.reply("Starting.");
-    } catch (e: unknown) {
-        if (!(e instanceof Error)) throw e;
-        if (e["code"] == "MODULE_NOT_FOUND") { // Typescript doesn't have Error.code but it's definitely on the object.
-            message.reply("Invalid vocabulary.");
-            return;
-        }
-
-        throw e;
-    }
+    const response = start(channel.guild.id, channel.id, `${message.author.username}#${message.author.discriminator}`, vocabulary);
+    message.reply(response);
 }
