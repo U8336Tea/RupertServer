@@ -1,8 +1,8 @@
-import type { TextChannel } from "discord.js";
 import { CommandOptionType, SlashCommand } from "slash-create";
 import type { SlashCreator, CommandContext } from "slash-create";
 
-import { findConfig, hasPermission, startResponder, pathSafe } from "../common.js";
+import { hasPermission } from "../common.js";
+import start from "../startCommand.js";
 import { rand } from "../../common.js";
 
 const VOCABULARY_KEY = "name";
@@ -33,43 +33,10 @@ export default class StartRupertCommand extends SlashCommand {
             return this.response;
         }
 
-        const currentResponder = global.responders.get(ctx.channelID);
-        if (currentResponder && !currentResponder.destroyed) return;
-
-        const channel = global.discord.channels.resolve(ctx.channelID) as TextChannel;
-        const perms = channel.permissionsFor(global.discord.user);
-        if (!(perms.has("VIEW_CHANNEL") && perms.has("SEND_MESSAGES"))) {
-            ctx.send("rupper can't talk in this channel", { ephemeral: true });
-            return;
-        }
-
-        if (rand(64) == 0) ctx.send(this.response);
-
-        let config = findConfig(ctx.guildID, ctx.channelID);
         const vocabulary = ctx.options[VOCABULARY_KEY]?.toString();
-        if (vocabulary) {
-            if (!pathSafe(vocabulary)) {
-                const member = ctx.member.user;
-                console.log(`Possible directory traversal attempt from ${member.username}#${member.discriminator}`);
-                console.log(`Path: ${vocabulary}`);
-                ctx.send("Invalid vocabulary.", { ephemeral: true });
-                return;
-            }
+        const response = start(ctx.guildID, ctx.channelID, `${ctx.member.user.username}#${ctx.member.user.discriminator}`, vocabulary);
 
-            config.vocabulary = vocabulary;
-        }
-
-        try {
-            startResponder(config, channel.id);
-            ctx.send("startig ruppert", {ephemeral: true})
-        } catch (e: unknown) {
-            if (!(e instanceof Error)) throw e;
-            if (e["code"] == "MODULE_NOT_FOUND") { // Typescript doesn't have Error.code but it's definitely on the object.
-                ctx.send("Invalid vocabulary.", { ephemeral: true });
-                return;
-            }
-    
-            throw e;
-        }
+        ctx.send(response, { ephemeral: true });
+        if (rand(64) == 0) ctx.send(this.response);
     }
 }
