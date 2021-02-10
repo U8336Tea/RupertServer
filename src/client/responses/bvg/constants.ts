@@ -22,6 +22,22 @@ export const INITIAL_MESSAGES = [
     "Wew.? More like Poo."
 ]
 
+const TROLLFACE = `░░░░░▄▄▄▄▀▀▀▀▀▀▀▀▄▄▄▄▄▄░░░░░░░
+░░░░░█░░░░▒▒▒▒▒▒▒▒▒▒▒▒░░▀▀▄░░░░
+░░░░█░░░▒▒▒▒▒▒░░░░░░░░▒▒▒░░█░░░
+░░░█░░░░░░▄██▀▄▄░░░░░▄▄▄░░░░█░░
+░▄▀▒▄▄▄▒░█▀▀▀▀▄▄█░░░██▄▄█░░░░█░
+█░▒█▒▄░▀▄▄▄▀░░░░░░░░█░░░▒▒▒▒▒░█
+█░▒█░█▀▄▄░░░░░█▀░░░░▀▄░░▄▀▀▀▄▒█
+░█░▀▄░█▄░█▀▄▄░▀░▀▀░▄▄▀░░░░█░░█░
+░░█░░░▀▄▀█▄▄░█▀▀▀▄▄▄▄▀▀█▀██░█░░
+░░░█░░░░██░░▀█▄▄▄█▄▄█▄████░█░░░
+░░░░█░░░░▀▀▄░█░░░█░█▀██████░█░░
+░░░░░▀▄░░░░░▀▀▄▄▄█▄█▄█▄█▄▀░░█░░
+░░░░░░░▀▄▄░▒▒▒▒░░░░░░░░░░▒░░░█░
+░░░░░░░░░░▀▀▄▄░▒▒▒▒▒▒▒▒▒▒░░░░█░
+░░░░░░░░░░░░░░▀▄▄▄▄▄░░░░░░░░█░░`
+
 export const RESPONSES = [
     "All g*mers are equally evil. Keep that in mind.",
     "I didn't read.",
@@ -51,7 +67,8 @@ export const RESPONSES = [
     "I did not read. Due to the fact that I didn't read your argument, it is now invalid. You have nothing to prove against my argument and as a result of this I am considered the winner of this argument. Have a good day seething and coping.",
     "Too long. Did not read! :rofl:",
     "Not interested.",
-    "Yeah. Uh huh. Real funny."
+    "Yeah. Uh huh. Real funny.",
+    TROLLFACE
 ]
 
 export const LINK_RESPONSE = [
