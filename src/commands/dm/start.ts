@@ -2,9 +2,14 @@ import { Channel, TextChannel, Message } from "discord.js";
 
 import { pathSafe, findConfig, startResponder } from "../common.js";
 
+const USAGE = "start <channel id> [vocabulary name]"
+
 export default function(message: Message, command: string[]) {
     const length = command.length;
-    if (length < 2) return;
+    if (length < 2) {
+        message.reply(`Usage: ${USAGE}`);
+        return;
+    }
     
     const discord = global.discord;
     let channel: Channel;
