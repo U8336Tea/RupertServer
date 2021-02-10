@@ -2,8 +2,14 @@ import type { Message } from "discord.js";
 
 import { Rule, RuleType } from "../../Rule";
 
+const USAGE = "blacklist <channel id> <rule type (user or role)> <id>"
+
 export default function(message: Message, command: string[]) {
-    if (command.length < 4) return;
+    if (command.length < 4) {
+        message.reply(`Usage: ${USAGE}`);
+        return;
+    }
+
     let [ _, channelID, ruleType, ruleID ] = command;
     
     if (!global.responders.has(channelID)) {
