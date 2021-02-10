@@ -50,7 +50,7 @@ export default class implements MessageProvider {
         const content = message.content.toLowerCase();
         if (content.length < 4 || rand(128) == 0) {
             return null;
-        } else if (content.includes("kill myself")) {
+        } else if (content.includes("kill myself") || content.includes("bot")) {
             return await this.fallback.response(message);
         }
 
