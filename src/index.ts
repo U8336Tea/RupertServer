@@ -49,7 +49,7 @@ global.discord.ws.on("READY", (data, _) => { // onMessage will not be triggered 
 
 global.discord.on("ready", () => {
     console.log("Discord ready.");
-    global.discord.user.setStatus("invisible");
+    global.discord.user.setStatus("dnd");
     global.discord.on("message", onMessage);
 });
 
