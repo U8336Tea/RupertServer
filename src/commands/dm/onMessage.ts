@@ -7,7 +7,7 @@ export default function(message: Message) {
     if (!hasPermission(message.author.id)) return;
 
     const command = message.content.split(" ").map(s => s.toLowerCase());
-    if (command.length > 1) return;
+    if (command.length < 1) return;
 
     const commandName = command[0];
     if (!pathSafe(commandName)) return;
