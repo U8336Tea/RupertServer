@@ -59,7 +59,17 @@ export default class StartRupertCommand extends SlashCommand {
             config.vocabulary = vocabulary;
         }
 
-        ctx.send("startig ruppert", {ephemeral: true});
-        startResponder(config, ctx.channelID);
+        try {
+            startResponder(config, channel.id);
+            ctx.send("startig ruppert", {ephemeral: true})
+        } catch (e: unknown) {
+            if (!(e instanceof Error)) throw e;
+            if (e["code"] == "MODULE_NOT_FOUND") { // Typescript doesn't have Error.code but it's definitely on the object.
+                ctx.send("Invalid vocabulary.", { ephemeral: true });
+                return;
+            }
+    
+            throw e;
+        }
     }
 }

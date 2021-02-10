@@ -44,6 +44,16 @@ export default function(message: Message, command: string[]) {
         config.vocabulary = vocabulary;
     }
 
-    message.reply("Starting.");
-    startResponder(config, channel.id);
+    try {
+        startResponder(config, channel.id);
+        message.reply("Starting.");
+    } catch (e: unknown) {
+        if (!(e instanceof Error)) throw e;
+        if (e["code"] == "MODULE_NOT_FOUND") { // Typescript doesn't have Error.code but it's definitely on the object.
+            message.reply("Invalid vocabulary.");
+            return;
+        }
+
+        throw e;
+    }
 }
