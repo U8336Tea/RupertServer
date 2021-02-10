@@ -6,6 +6,7 @@ import { SlashCreator, FastifyServer } from "slash-create";
 
 import oauth from "./oauth.js";
 import { config } from "./config.js";
+import onMessage from "./commands/dm/onMessage.js";
 
 const slashConfig = config.slashConfig;
 const discordConfig = config.discordConfig;
@@ -41,6 +42,7 @@ oauth(slashConfig.appID, slashConfig.secret, "applications.commands").then(token
 global.discord.on("ready", () => {
     console.log("Discord ready.");
     global.discord.user.setStatus("invisible");
+    global.discord.on("message", onMessage);
 });
 
 global.discord.login(discordConfig.token);
