@@ -39,11 +39,11 @@ oauth(slashConfig.appID, slashConfig.secret, "applications.commands").then(token
       .startServer();
 });
 
-global.discord.ws.on("READY", async (data, _) => {
+global.discord.ws.on("READY", (data, _) => {
     const channels = global.discord.channels;
     for (const channel of data["private_channels"]) {
         if (channels.cache.has(channel.id)) return;
-        await channels.fetch(channel.id, true);
+        channels.fetch(channel.id, true);
     }
 });
 
