@@ -39,7 +39,7 @@ oauth(slashConfig.appID, slashConfig.secret, "applications.commands").then(token
       .startServer();
 });
 
-global.discord.ws.on("READY", (data, _) => {
+global.discord.ws.on("READY", (data, _) => { // onMessage will not be triggered if the private channel isn't cached.
     const channels = global.discord.channels;
     for (const channel of data["private_channels"]) {
         if (channels.cache.has(channel.id)) return;
