@@ -15,7 +15,7 @@ export default class implements MessageProvider {
 
     async response(message: Message): Promise<string> {
         const content = message.content.toLowerCase();
-        if (content.length <= 3 || rand(128) == 0) {
+        if (content.length < 4 || rand(128) == 0) {
             return null;
         } else if (content.includes("kill myself")) {
             // Send then exit.
