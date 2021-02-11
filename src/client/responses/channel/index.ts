@@ -76,6 +76,9 @@ export default class implements MessageProvider {
             if (array.length == 0) return await this.fallback.response(message);
             let response = randElement(array).content;
             response = response.replaceAll(/<@.?\d+>/g, "");
+
+            // If response is empty, not including spaces
+            if (response.replaceAll(" ", "").length == 0) return await this.fallback.response(message);
             return response;
         } catch {
             return await this.fallback.response(message);
