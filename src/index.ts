@@ -54,3 +54,10 @@ global.discord.on("ready", () => {
 });
 
 global.discord.login(discordConfig.token);
+
+// Normally SIGINT and SIGTERM don't run the exit handler.
+process.on('SIGINT', _ => process.exit());
+process.on('SIGTERM', _ => process.exit());
+process.on('exit', _ => {
+    global.discord.destroy();
+});
