@@ -4,7 +4,12 @@ import { hasPermission, pathSafe } from "../common.js";
 
 export default function(message: Message) {
     if (!(message.channel instanceof DMChannel)) return;
-    if (!hasPermission(message.author.id)) return;
+    if (!hasPermission(message.author.id)) {
+        try {
+            message.reply("tldr");
+        } catch {}
+        return;
+    }
 
     const command = message.content.split(" ").map(s => s.toLowerCase());
     if (command.length < 1) return;
