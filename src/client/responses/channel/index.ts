@@ -69,10 +69,14 @@ export default class implements MessageProvider {
             
             if (messages.size == 0) return await this.fallback.response(message);
 
-            const array = messages.filter(msg => 
-                hasPermission(msg.author.id) && (msg.content != null))
-                .array();
+            const potentials = messages.filter(msg => 
+                hasPermission(msg.author.id) &&
+                msg.content != null          &&
+                msg.attachments.size == 0    &&
+                !msg.system                  &&
+                !msg.author.bot);
 
+            const array = potentials.array();
             if (array.length == 0) return await this.fallback.response(message);
             let response = randElement(array).content;
             response = response.replaceAll(/<@.?\d+>/g, "");
