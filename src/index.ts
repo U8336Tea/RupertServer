@@ -60,4 +60,5 @@ process.on('SIGINT', _ => process.exit());
 process.on('SIGTERM', _ => process.exit());
 process.on('exit', _ => {
     global.discord.destroy();
+    console.log("Discord destroyed.");
 });
