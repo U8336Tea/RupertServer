@@ -23,10 +23,12 @@ export function ruleFromObject(json: object): Rule {
 
     let ruleType: RuleType;
 
+    if (!id || !type) throw new Error("Improperly written rule.");
+
     if (typeof type === 'string') {
         ruleType = RuleType[type];
 
-        if (ruleType == null) throw "Unknown rule type."
+        if (ruleType == null) throw new Error("Unknown rule type.");
     } else {
         ruleType = type;
     }
