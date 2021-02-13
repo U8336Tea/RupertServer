@@ -11,6 +11,7 @@ export class ChannelMessageQueue {
     channel: TextChannel;
 
     private internal: Message[][] = [];
+    private filling: boolean = false;
 
     constructor(maxLength: number,
         earliest: number,
@@ -24,11 +25,16 @@ export class ChannelMessageQueue {
     }
 
     async fill() {
+        if (this.filling) return;
+
+        this.filling = true;
         while (this.internal.length < this.maxLength) {
             const potentials = await this.getPotentials();
             if (potentials) this.internal.push(potentials);
             await sleep(5000); // Avoid getting rate-limited.
         }
+
+        this.filling = false;
     }
 
     pop(refill: boolean = true): Message[] {
