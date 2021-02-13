@@ -8,12 +8,15 @@ import BVG from "../bvg/index.js";
 import { rand, randElement } from "../../../common.js";
 import { MessageProvider } from "../../MessageProvider.js";
 import { ChannelConfig, parseConfig } from "./ChannelConfig.js";
-import { hasPermission } from "../../../commands/common.js";
+import { ChannelMessageQueue } from "./ChannelMessageQueue.js";
+
+const MAX_QUEUE = 10;
 
 export default class implements MessageProvider {
     private fallback = new BVG(); // In case we can't get any suitable messages
     private config?: ChannelConfig = null;
     private channel?: TextChannel = null;
+    private queue: ChannelMessageQueue;
 
     constructor() {
         const configPath = path.join(__dirname, "config.json");
@@ -32,6 +35,7 @@ export default class implements MessageProvider {
                         return;
                     }
 
+                    this.queue = new ChannelMessageQueue(MAX_QUEUE, config.earliest.getTime(), channel);
                     this.channel = channel;
                 })
 
@@ -58,31 +62,9 @@ export default class implements MessageProvider {
         }
 
         try {
-            // Find a random message within the channel.
-            const timestamp = rand(Date.now(), this.config.earliest.getTime());
-            const date = new Date(timestamp);
-            const snowflake = SnowflakeUtil.generate(date);
+            const potentials = await this.queue.pop();
+            if (!potentials) return await this.fallback.response(message);
 
-            const messages = await this.channel.messages.fetch(
-                { around: snowflake },
-                false);
-            
-            if (messages.size == 0) return await this.fallback.response(message);
-
-            const potentials: Message[] = [];
-
-            for (const msg of messages.values()) { // Can't use filter because an async function is called.
-                const condition = (msg.content != null &&
-                    await hasPermission(msg.author.id) &&
-                    msg.content != null                &&
-                    msg.attachments.size == 0          &&
-                    !msg.system                        &&
-                    !msg.author.bot);
-
-                if (condition) potentials.push(msg);
-            }
-
-            if (potentials.length == 0) return await this.fallback.response(message);
             let response = randElement(potentials).content;
             response = response.replaceAll(/<@.?\d+>/g, "");
 
