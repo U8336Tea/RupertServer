@@ -72,12 +72,12 @@ export default class implements MessageProvider {
             const potentials: Message[] = [];
 
             for (const msg of messages.values()) { // Can't use filter because an async function is called.
-                const condition = msg.content != null  &&
+                const condition = (msg.content != null &&
                     await hasPermission(msg.author.id) &&
                     msg.content != null                &&
                     msg.attachments.size == 0          &&
                     !msg.system                        &&
-                    !msg.author.bot
+                    !msg.author.bot);
 
                 if (condition) potentials.push(msg);
             }
