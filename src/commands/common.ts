@@ -7,9 +7,9 @@ import { Responder } from "../client/Responder.js";
 import { getResponderConfig } from "../client/ResponderConfig.js";
 import type { ResponderConfig } from "../client/ResponderConfig.js";
 
-export function hasPermission(id: string): boolean {
-    const guild = global.discord.guilds.resolve(global.config.slashConfig.allowGuild);
-    const discordMember = guild.members.resolve(id);
+export async function hasPermission(id: string): Promise<boolean> {
+    const guild = await global.discord.guilds.fetch(global.config.slashConfig.allowGuild);
+    const discordMember = await guild.members.fetch(id);
     if (!discordMember) return false;
 
     const member = RuleMember.fromDiscordJS(discordMember);

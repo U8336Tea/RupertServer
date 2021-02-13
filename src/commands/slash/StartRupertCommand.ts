@@ -28,7 +28,7 @@ export default class StartRupertCommand extends SlashCommand {
     }
 
     async run(ctx: CommandContext) {
-        if (!hasPermission(ctx.member.id)) {
+        if (!(await hasPermission(ctx.member.id))) {
             ctx.send(`From ${ctx.member.mention}:`);
             return this.response;
         }
