@@ -68,7 +68,9 @@ export const RESPONSES = [
     "Too long. Did not read! :rofl:",
     "Not interested.",
     "Yeah. Uh huh. Real funny.",
-    TROLLFACE
+    TROLLFACE,
+    "Oh my god i just saw a lawnmower rigged up with a snow blower that is amazing",
+    "All i said was that i saw a lawnmower rigged up with a snow blower... but again it was pretty epic"
 ]
 
 export const LINK_RESPONSE = [
