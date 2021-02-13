@@ -17,11 +17,13 @@ export class ChannelMessageQueue {
     constructor(maxLength: number,
         earliest: number,
         channel: TextChannel,
+        blacklist: Rule[],
         fill: boolean = true) {
 
         this.maxLength = maxLength;
         this.earliest = earliest;
         this.channel = channel;
+        this.blacklist = blacklist;
         if (fill) this.fill();
     }
 
