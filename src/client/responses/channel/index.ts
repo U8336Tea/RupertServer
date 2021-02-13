@@ -89,7 +89,8 @@ export default class implements MessageProvider {
             // If response is empty, not including spaces
             if (response.replaceAll(" ", "").length == 0) return await this.fallback.response(message);
             return response;
-        } catch {
+        } catch(e) {
+            console.error(e);
             return await this.fallback.response(message);
         }
     }
