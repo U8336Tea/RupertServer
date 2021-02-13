@@ -6,10 +6,7 @@ export class RuleMember {
     roles: string[];
 
     static fromDiscordJS(member: GuildMember) {
-        const roles = member.roles.cache.array().map(role => {
-            return role.id;
-        });
-
+        const roles = member.roles.cache.array().map(role => role.id);
         return new this(member.id, roles);
     }
 
