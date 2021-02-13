@@ -4,13 +4,7 @@ import { Rule, RuleType } from "./Rule.js";
 const configJson: object = JSON.parse(fs.readFileSync("./config.json").toString());
 
 export function parseRules(array: object[]): Rule[] {
-    const rules: Rule[] = [];
-
-    for (const json of array) {
-        rules.push(ruleFromObject(json));
-    }
-
-    return rules;
+    return array.map(ruleFromObject);
 }
 
 configJson["slashConfig"]["allowedMembers"] = parseRules(configJson["slashConfig"]["allowedMembers"]);
