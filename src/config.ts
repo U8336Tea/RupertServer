@@ -47,4 +47,5 @@ export interface SlashConfig {
 
     allowGuild: string;
     allowedMembers: Rule[];
+    port: number;
 }

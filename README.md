@@ -11,7 +11,7 @@ More will be discussed in the next section. In addition, the following files are
 - tls/cert.pem: the full chain certificate
 - tls/key.pem: the key
 
-The bot listens for Discord slash command interactions on HTTPS port 7900.
+The bot listens for Discord slash command interactions over HTTPS.
 
 # CONFIGURATION
 ## config.json
@@ -28,6 +28,7 @@ This is the configuration for the entire server. Format:
         "publicKey": "",
         "secret": "",
         "allowGuild": "", // Guild ID on which to check if the user has permission to run the command.
+        "port": 7900,
         "allowedMembers": [
             {
                 "type": "Role", // Or "User"
