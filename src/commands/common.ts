@@ -7,12 +7,13 @@ import { Responder } from "../client/Responder.js";
 import { getResponderConfig } from "../client/ResponderConfig.js";
 import type { ResponderConfig } from "../client/ResponderConfig.js";
 
+let guild: Guild;
+
 export async function hasPermission(id: string): Promise<boolean> {
-    let guild: Guild;
     let discordMember: GuildMember;
 
     try {
-        guild = await global.discord.guilds.fetch(global.config.slashConfig.allowGuild);
+        if (!guild) guild = await global.discord.guilds.fetch(global.config.slashConfig.allowGuild);
         discordMember = await guild.members.fetch(id);
     } catch (e: unknown) {
         if (!(e instanceof DiscordAPIError)) throw e;
