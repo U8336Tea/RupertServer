@@ -1,14 +1,15 @@
 import { SnowflakeUtil } from "discord.js";
-import type { Message, TextChannel } from "discord.js";
+import type { GuildMember, Message, TextChannel } from "discord.js";
 
 import { rand, sleep } from "../../../common.js";
 import { hasPermission } from "../../../commands/common.js";
-import type { ChannelConfig } from "./ChannelConfig.js";
+import { Rule, RuleMember } from "../../../Rule.js";
 
 export class ChannelMessageQueue {
     maxLength: number;
     earliest: number;
     channel: TextChannel;
+    blacklist: Rule[];
 
     private internal: Message[][] = [];
     private filling: boolean = false;
@@ -67,6 +68,7 @@ export class ChannelMessageQueue {
         for (const msg of messages.values()) { // Can't use filter because an async function is called.
             const condition = (msg.content != null &&
                 await hasPermission(msg.author.id) &&
+                this.allowedUsage(msg.member)      &&
                 msg.content != null                &&
                 msg.attachments.size == 0          &&
                 !msg.system                        &&
@@ -76,5 +78,14 @@ export class ChannelMessageQueue {
         }
 
         return potentials.length ? potentials : null;
+    }
+
+    private allowedUsage(member: GuildMember): boolean {
+        const ruleMember = RuleMember.fromDiscordJS(member);
+        for (const rule of this.blacklist) {
+            if (rule.isMatch(ruleMember)) return false;
+        }
+
+        return true;
     }
 }
