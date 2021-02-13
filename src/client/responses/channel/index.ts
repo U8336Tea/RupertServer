@@ -69,16 +69,21 @@ export default class implements MessageProvider {
             
             if (messages.size == 0) return await this.fallback.response(message);
 
-            const potentials = messages.filter(msg => 
-                hasPermission(msg.author.id) &&
-                msg.content != null          &&
-                msg.attachments.size == 0    &&
-                !msg.system                  &&
-                !msg.author.bot);
+            const potentials: Message[] = [];
 
-            const array = potentials.array();
-            if (array.length == 0) return await this.fallback.response(message);
-            let response = randElement(array).content;
+            for (const msg of messages.values()) { // Can't use filter because an async function is called.
+                const condition = msg.content != null  &&
+                    await hasPermission(msg.author.id) &&
+                    msg.content != null                &&
+                    msg.attachments.size == 0          &&
+                    !msg.system                        &&
+                    !msg.author.bot
+
+                if (condition) potentials.push(msg);
+            }
+
+            if (potentials.length == 0) return await this.fallback.response(message);
+            let response = randElement(potentials).content;
             response = response.replaceAll(/<@.?\d+>/g, "");
 
             // If response is empty, not including spaces
