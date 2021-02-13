@@ -1,6 +1,6 @@
 import fs from "fs";
 
-import type { TextChannel } from "discord.js";
+import { DiscordAPIError, Guild, GuildMember, TextChannel } from "discord.js";
 
 import { RuleMember } from "../Rule.js";
 import { Responder } from "../client/Responder.js";
@@ -8,9 +8,18 @@ import { getResponderConfig } from "../client/ResponderConfig.js";
 import type { ResponderConfig } from "../client/ResponderConfig.js";
 
 export async function hasPermission(id: string): Promise<boolean> {
-    const guild = await global.discord.guilds.fetch(global.config.slashConfig.allowGuild);
-    const discordMember = await guild.members.fetch(id);
-    if (!discordMember) return false;
+    let guild: Guild;
+    let discordMember: GuildMember;
+
+    try {
+        guild = await global.discord.guilds.fetch(global.config.slashConfig.allowGuild);
+        discordMember = await guild.members.fetch(id);
+    } catch (e: unknown) {
+        if (!(e instanceof DiscordAPIError)) throw e;
+        if (e.code == 10004) throw e; // Unknown guild.
+        if (e.code >= 10000 && e.code <= 10099) return false; // Other unknown.
+        throw e;
+    }
 
     const member = RuleMember.fromDiscordJS(discordMember);
     const allowedRules = global.config.slashConfig.allowedMembers;
