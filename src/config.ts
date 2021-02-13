@@ -3,7 +3,7 @@ import { Rule, RuleType } from "./Rule.js";
 
 const configJson: object = JSON.parse(fs.readFileSync("./config.json").toString());
 
-function parseRules(array: object[]): Rule[] {
+export function parseRules(array: object[]): Rule[] {
     const rules: Rule[] = [];
 
     for (const json of array) {
