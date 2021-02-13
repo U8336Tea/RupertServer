@@ -26,15 +26,20 @@ export class ChannelMessageQueue {
 
     async fill() {
         if (this.filling) return;
-
         this.filling = true;
-        while (this.internal.length < this.maxLength) {
-            const potentials = await this.getPotentials();
-            if (potentials) this.internal.push(potentials);
-            await sleep(5000); // Avoid getting rate-limited.
-        }
 
-        this.filling = false;
+        try {
+            while (this.internal.length < this.maxLength) {
+                const potentials = await this.getPotentials();
+                if (potentials) this.internal.push(potentials);
+                await sleep(5000); // Avoid getting rate-limited.
+            }
+        } catch(e: unknown) {
+            console.error(e);
+            return;
+        } finally {
+            this.filling = false;
+        }
     }
 
     pop(refill: boolean = true): Message[] {
