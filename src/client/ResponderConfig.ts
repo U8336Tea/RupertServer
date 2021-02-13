@@ -14,11 +14,11 @@ export function getResponderConfig(json: string): ResponderConfig {
     const rules = [];
     const blacklist = [];
 
-    for (const rule of configObject["rules"] || []) rules.push(ruleFromObject(rule));
-    for (const rule of configObject["blacklist"] || []) blacklist.push(ruleFromObject(rule));
+    for (const rule of configObject["rules"] ?? []) rules.push(ruleFromObject(rule));
+    for (const rule of configObject["blacklist"] ?? []) blacklist.push(ruleFromObject(rule));
 
     return {
-        vocabulary: configObject["vocabulary"] || "bvg",
+        vocabulary: configObject["vocabulary"] ?? "bvg",
         timeoutInterval: configObject["timeoutInterval"],
         rules: rules,
         blacklist: blacklist
