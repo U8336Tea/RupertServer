@@ -29,14 +29,14 @@ oauth(slashConfig.appID, slashConfig.secret, "applications.commands").then(token
         publicKey: slashConfig.publicKey,
         token: "Bearer " + token,
         serverHost: "0.0.0.0",
-        serverPort: 7900
+        serverPort: slashConfig.port
     });
 
     creator
       .withServer(new FastifyServer(fastifyOpts))
       .registerCommandsIn(join(__dirname, "commands/slash"))
       .syncCommands({ deleteCommands: true })
-      .startServer();
+      .startServer().then(() => console.log(`Server started on port ${slashConfig.port}`));
 });
 
 global.discord.ws.on("READY", (data, _) => { // onMessage will not be triggered if the private channel isn't cached.
