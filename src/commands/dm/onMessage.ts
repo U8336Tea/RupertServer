@@ -5,6 +5,7 @@ import { hasPermission, pathSafe } from "../common.js";
 export default async function(message: Message) {
     if (!(message.channel instanceof DMChannel)) return;
     if (!(await hasPermission(message.author.id))) {
+        if (message.author.id == global.discord.user.id) return;
         try {
             message.reply("tldr");
         } catch {}
