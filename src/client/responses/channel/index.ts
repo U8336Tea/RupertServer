@@ -10,7 +10,7 @@ import { MessageProvider } from "../../MessageProvider.js";
 import { ChannelConfig, parseConfig } from "./ChannelConfig.js";
 import { ChannelMessageQueue } from "./ChannelMessageQueue.js";
 
-const MAX_QUEUE = 10;
+const MAX_QUEUE = 25;
 
 export default class implements MessageProvider {
     private fallback = new BVG(); // In case we can't get any suitable messages
