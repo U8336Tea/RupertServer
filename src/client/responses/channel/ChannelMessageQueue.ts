@@ -31,12 +31,12 @@ export class ChannelMessageQueue {
         }
     }
 
-    pop(refill: boolean = true): Promise<Message[]> {
-        if (!this.internal.length) return this.getPotentials();
+    pop(refill: boolean = true): Message[] {
+        if (!this.internal.length) return null;
 
         const messages = this.internal.pop();
         if (refill) this.fill();
-        return Promise.resolve(messages);
+        return messages;
     }
 
     private async getPotentials(): Promise<Message[]> {

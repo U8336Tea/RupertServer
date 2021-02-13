@@ -62,7 +62,7 @@ export default class implements MessageProvider {
         }
 
         try {
-            const potentials = await this.queue.pop();
+            const potentials = this.queue.pop();
             if (!potentials) return await this.fallback.response(message);
 
             let response = randElement(potentials).content;
