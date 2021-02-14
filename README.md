@@ -1,4 +1,6 @@
-A Discord bot to argue with people. Currently configured to argue for the r/BanVideoGames server. Vocabulary can easily be changed. Currently configured to start with the command `/crapsing` and end with `/crapnaked`.
+A Discord bot to argue with people. Currently configured to argue for the
+r/BanVideoGames server. Vocabulary can easily be changed. Currently
+configured to start with the command `/crapsing` and end with `/crapnaked`.
 
 # USAGE
 This project requires a list of configuration files:
@@ -12,6 +14,13 @@ More will be discussed in the next section. In addition, the following files are
 - tls/key.pem: the key
 
 The bot listens for Discord slash command interactions over HTTPS.
+
+# VOCABULARIES
+Vocabularies are swappable classes which can be used to change the way that
+Rupert speaks. At the moment, the `name` argument to `/crapsing` can be
+used to change out vocabularies.
+
+Vocabularies are loaded from `client/responses/{name}/index.js`.
 
 # CONFIGURATION
 ## config.json
@@ -53,6 +62,19 @@ This is the configuration for the entire server. Format:
     "blacklist": [ // The rules to which the responder never responds, even if it's mentioned.
         { "type": "Role", "id": "" },
         { "type": "User", "id": "" }
+    ]
+}
+```
+
+## channel (client/responses/channel/config.json)
+```json
+{
+    "channelID": "",
+    "earliest": "", // The earliest we can query from the channel.
+    "log": true, // Whether to log these messages to console. Default: false
+    "blacklist": [ // The messages not to send.
+        { "type": "User", "id": "0" },
+        { "type": "Role", "id": "0" }
     ]
 }
 ```
