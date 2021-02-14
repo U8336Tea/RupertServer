@@ -12,7 +12,8 @@ export function parseConfig(data: object): ChannelConfig {
     return {
         channelID: data["channelID"],
         earliest: new Date(data["earliest"]),
-        blacklist: rules
+        blacklist: rules,
+        log: data["log"] ?? false
     };
 }
 
@@ -20,4 +21,5 @@ export interface ChannelConfig {
     channelID: string;
     earliest: Date;
     blacklist: Rule[];
+    log: boolean;
 }
