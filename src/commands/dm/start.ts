@@ -27,6 +27,6 @@ export default function(message: Message, command: string[]) {
     let vocabulary = null;
     if (length >= 3) vocabulary = command[2];
 
-    const response = start(channel.guild.id, channel.id, `${message.author.username}#${message.author.discriminator}`, vocabulary);
+    const response = start(channel.guild.id, channel.id, message.author.tag, vocabulary);
     message.reply(response);
 }

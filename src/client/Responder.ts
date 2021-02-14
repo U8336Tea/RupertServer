@@ -107,7 +107,7 @@ export class Responder extends EventEmitter {
         for (const rule of this.blacklistRules) {
             if (rule.isMatch(RuleMember.fromDiscordJS(author))) {
                 const user = author.user;
-                this.emit("log", `\nBlacklisted from ${user.username}#${user.discriminator}`);
+                this.emit("log", `\nBlacklisted from ${user.tag}`);
                 return;
             }
         }
