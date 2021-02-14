@@ -70,8 +70,14 @@ export default class implements MessageProvider {
             const potentials = this.queue.pop();
             if (!potentials) return await this.fallback.response(message);
 
-            let response = randElement(potentials).content;
-            response = response.replaceAll(/<@.?\d+>/g, "");
+            const responseMessage = randElement(potentials);
+            if (this.config.log) {
+                console.log(`Sending message from ${responseMessage.author.tag}`)
+                console.log(`at https://discord.com/channels/${responseMessage.guild.id}/` +
+                    `${responseMessage.channel.id}/${responseMessage.id}`);
+            }
+
+            const response = responseMessage.content.replaceAll(/<@.?\d+>/g, "");
 
             // If response is empty, not including spaces
             if (response.replaceAll(" ", "").length == 0) return await this.fallback.response(message);
