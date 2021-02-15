@@ -132,7 +132,7 @@ export class Responder extends EventEmitter {
         const opts: MessageOptions = {
             tts: true,
             allowedMentions: { 
-                parse: ["everyone"],
+                parse: ["roles", "users", "everyone"],
                 repliedUser: true
             }
         };
