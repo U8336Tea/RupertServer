@@ -19,7 +19,13 @@ export const INITIAL_MESSAGES = [
     "The invention of g\\*ming and its consequences have been a disaster for the human race.",
     "G\\*mers are all rude and anti-social (sociopaths).",
     "I HAVE ARRIVED TO MAKE YOU COPE, SEETHE, AND REPEAT!",
-    "Wew.? More like Poo."
+    "Wew.? More like Poo.",
+    "G\\*mers: if you’re not racist, then why do you have minorities?",
+    "Dear g\\*mers, stop hating black people!",
+    "You know, if I were to jump from your ego to your I.Q, I would die on impact.",
+    "Join my cool amogus research KTFJJY",
+    "Humor is a sign of intelligence, and g\\*mers are painfully unfunny.",
+    "Reminder: G\\*mer Brain Rot is real."
 ]
 
 const TROLLFACE = `░░░░░▄▄▄▄▀▀▀▀▀▀▀▀▄▄▄▄▄▄░░░░░░░
@@ -70,7 +76,15 @@ export const RESPONSES = [
     "Yeah. Uh huh. Real funny.",
     TROLLFACE,
     "Oh my god i just saw a lawnmower rigged up with a snow blower that is amazing",
-    "All i said was that i saw a lawnmower rigged up with a snow blower... but again it was pretty epic"
+    "All i said was that i saw a lawnmower rigged up with a snow blower... but again it was pretty epic",
+    "amogu",
+    "Wait, this is the wrog channel.",
+    "Cute insult, thought of that yourself?",
+    "Go ahead g*mer, cope and seethe.",
+    "What?",
+    "G\\*mers don't make any sense. :rofl:",
+    "Humor is a sign of intelligence, and g\\*mers are painfully unfunny.",
+    "Too long, tldr."
 ]
 
 export const LINK_RESPONSE = [
