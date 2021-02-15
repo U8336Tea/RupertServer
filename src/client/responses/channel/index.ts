@@ -58,8 +58,10 @@ export default class implements MessageProvider {
         if (rand(64) == 0) return await this.fallback.response(message);
 
         const content = message.content.toLowerCase();
-        if (content.length < 4 || !message.content.match(/[a-zA-Z]/) || rand(128) == 0) {
+        if (content.length < 4) {
             return null;
+        } else if (!message.content.match(/[a-zA-Z]/) || rand(128) == 0) {
+            return "speak american, i cant understand you";
         } else if (content.includes("kill myself")) {
             return await this.fallback.response(message);
         } else if (content.includes("bot") && rand(256) != 0) {

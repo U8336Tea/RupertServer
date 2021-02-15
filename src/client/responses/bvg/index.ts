@@ -28,7 +28,7 @@ export default class implements MessageProvider {
             if (this.botCount >= constants.BOT_RESPONSES.length) return randElement(constants.BOT_RESPONSES);
             return constants.BOT_RESPONSES[this.botCount++];
         } else if (!content.match(/[a-zA-Z]/)) { // User sent a message like "..."
-            return null;
+            return "Please try to speak American. You know I can't understand that!";
         } else if (content.includes("valid argument") || content.includes("actual argument")) {
             return "Okay. " + randElement(constants.RESPONSES);
         } else if (content.includes(" troll") || content.includes(" satire")) {
