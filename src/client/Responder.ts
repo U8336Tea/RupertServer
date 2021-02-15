@@ -72,7 +72,7 @@ export class Responder extends EventEmitter {
         const message = await this.provider.initialMessage();
         this.emit("log", "Initial message: " + message);
 
-        channel.startTyping().catch(() => this.handleAPIError);
+        channel.startTyping().catch(e => this.handleAPIError(e));
         await sleep(rand(7, 2) * 1000);
         channel.stopTyping();
 
@@ -141,7 +141,7 @@ export class Responder extends EventEmitter {
             // Typing and reading time to "humanize" Rupert.
             await sleep(rand(3, 1) * 1000);
 
-            channel.startTyping().catch(() => this.handleAPIError);
+            channel.startTyping().catch(e => this.handleAPIError(e));
             await sleep(rand(5, 2) * 1000);
             await sleep(rand(2, 0) * 1000);
             channel.stopTyping();
