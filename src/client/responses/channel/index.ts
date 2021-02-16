@@ -55,7 +55,12 @@ export default class implements MessageProvider {
 
     async response(message: Message): Promise<string> {
         if (!this.config || !this.channel) return await this.fallback.response(message);
-        if (rand(8) == 0) return await this.fallback.response(message);
+        switch (rand(16)) {
+            case 0:
+                return await this.fallback.response(message);
+            case 1:
+                return await this.fallback.initialMessage();
+        }
 
         const content = message.content.toLowerCase();
         if (content.length < 4) {
