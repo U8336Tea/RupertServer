@@ -20,7 +20,7 @@ export const INITIAL_MESSAGES = [
     "G\\*mers are all rude and anti-social (sociopaths).",
     "I HAVE ARRIVED TO MAKE YOU COPE, SEETHE, AND REPEAT!",
     "Wew.? More like Poo.",
-    "G\\*mers: if you’re not racist, then why do you have minorities?",
+    "G\\*mers: if you’re not racist, then why do you hate minorities?",
     "Dear g\\*mers, stop hating black people!",
     "You know, if I were to jump from your ego to your I.Q, I would die on impact.",
     "Join my cool amogus research KTFJJY",
