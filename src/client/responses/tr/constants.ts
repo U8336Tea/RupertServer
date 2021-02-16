@@ -197,7 +197,6 @@ export const MESSAGES = [
     `"Consider the following"`,
     `"Ask? did not."`,
     `"Ok I get it shut the fuck up, when are you leaving the server already?"`,
-    `"Huh? What was that? Speak up retard. Seriously. Speak the fucking up. I'm done with your whining, coping and seething. Just get this overwith, admit it, you lost. There is no point in continuing. All of your arguements are from a five year old. Grow the fuck up. Oh wait. You can't."`,
     `(in response to the word "proof")
     https://www.thedartmouth.com/article/2018/10/dartmouth-study-finds-link-between-violent-video-games-and-aggressive-behavior`,
     `I thought you were gonna sleep <:trollblank:774713988336058379>`,
