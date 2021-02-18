@@ -48,7 +48,6 @@ export interface SlashConfig {
     publicKey: string;
     secret: string;
 
-    allowGuild: Snowflake;
     allowedMembers: Rule[];
     port: number;
 }
