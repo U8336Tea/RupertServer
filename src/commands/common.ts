@@ -1,6 +1,7 @@
 import fs from "fs";
 
 import { DiscordAPIError, Guild, GuildMember, TextChannel } from "discord.js";
+import type { Snowflake } from "discord.js";
 
 import { RuleMember } from "../Rule.js";
 import { Responder } from "../client/Responder.js";
@@ -9,7 +10,7 @@ import type { ResponderConfig } from "../client/ResponderConfig.js";
 
 let guild: Guild;
 
-export async function hasPermission(id: string): Promise<boolean> {
+export async function hasPermission(id: Snowflake): Promise<boolean> {
     let discordMember: GuildMember;
 
     try {
@@ -33,7 +34,7 @@ export async function hasPermission(id: string): Promise<boolean> {
     return false;
 }
 
-export function findConfig(guildID: string, channelID: string): ResponderConfig {
+export function findConfig(guildID: Snowflake, channelID: Snowflake): ResponderConfig {
     function load(url: URL): string {
         return fs.existsSync(url)            ?
             fs.readFileSync(url).toString()  :
@@ -51,7 +52,7 @@ export function findConfig(guildID: string, channelID: string): ResponderConfig 
     return getResponderConfig(file);
 }
 
-export function startResponder(config: ResponderConfig, channelID: string) {
+export function startResponder(config: ResponderConfig, channelID: Snowflake) {
     const { default: ResponseProvider } = require(`../client/responses/${config.vocabulary}/index.js`);
 
     const responder = new Responder(global.discord, new ResponseProvider(), config.timeoutInterval, config.rules, config.blacklist);

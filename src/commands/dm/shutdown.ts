@@ -1,6 +1,6 @@
-import type { Message } from "discord.js";
+import type { Message, Snowflake } from "discord.js";
 
-function destroy(id: string): Boolean {
+function destroy(id: Snowflake): Boolean {
     const responder = global.responders.get(id);
     if (!responder) return false;
     responder.destroy();

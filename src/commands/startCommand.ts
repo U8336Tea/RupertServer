@@ -1,8 +1,8 @@
-import type { TextChannel } from "discord.js";
+import type { TextChannel, Snowflake } from "discord.js";
 
 import { findConfig, pathSafe, startResponder } from "./common.js";
 
-export default function(guildID: string, channelID: string, name: string, vocabulary: string = null): string {
+export default function(guildID: Snowflake, channelID: Snowflake, name: string, vocabulary: string = null): string {
     const currentResponder = global.responders.get(channelID);
     if (currentResponder && !currentResponder.destroyed) return;
 

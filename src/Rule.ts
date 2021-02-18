@@ -26,9 +26,9 @@ export enum RuleType {
 
 export class Rule {
     type: RuleType;
-    id: Snowflake;
+    id: string;
 
-    constructor(type: RuleType, id: Snowflake) {
+    constructor(type: RuleType, id: string) {
         this.type = type;
         this.id = id;
     }
