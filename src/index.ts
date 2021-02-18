@@ -7,6 +7,7 @@ import { SlashCreator, FastifyServer } from "slash-create";
 import oauth from "./oauth.js";
 import { config } from "./config.js";
 import onMessage from "./commands/dm/onMessage.js";
+import { setEvents } from "./roleCache.js";
 
 const slashConfig = config.slashConfig;
 const discordConfig = config.discordConfig;
@@ -38,6 +39,8 @@ oauth(slashConfig.appID, slashConfig.secret, "applications.commands").then(token
       .syncCommands({ deleteCommands: true })
       .startServer().then(() => console.log(`Server started on port ${slashConfig.port}`));
 });
+
+setEvents();
 
 global.discord.ws.on("READY", (data, _) => { // onMessage will not be triggered if the private channel isn't cached.
     const channels = global.discord.channels;

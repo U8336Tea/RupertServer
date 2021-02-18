@@ -3,18 +3,19 @@ import fs from "fs";
 import { DiscordAPIError, Guild, GuildMember, TextChannel } from "discord.js";
 import type { Snowflake } from "discord.js";
 
-import { RuleMember } from "../Rule.js";
+import { Rule, RuleMember, RuleType } from "../Rule.js";
 import { Responder } from "../client/Responder.js";
 import { getResponderConfig } from "../client/ResponderConfig.js";
 import type { ResponderConfig } from "../client/ResponderConfig.js";
 
-let guild: Guild;
+async function roleRuleMatch(id: Snowflake, rule: Rule): Promise<boolean> {
+    const guildID = global.roleCache.get(rule.id);
+    if (!guildID) return false;
 
-export async function hasPermission(id: Snowflake): Promise<boolean> {
     let discordMember: GuildMember;
 
     try {
-        if (!guild) guild = await global.discord.guilds.fetch(global.config.slashConfig.allowGuild);
+        const guild = await global.discord.guilds.fetch(guildID);
         discordMember = await guild.members.fetch(id);
     } catch (e: unknown) {
         if (!(e instanceof DiscordAPIError)) throw e;
@@ -23,11 +24,20 @@ export async function hasPermission(id: Snowflake): Promise<boolean> {
         throw e;
     }
 
-    const member = RuleMember.fromDiscordJS(discordMember);
+    return discordMember.roles.cache.has(rule.id);
+}
+
+export async function hasPermission(id: Snowflake): Promise<boolean> {
     const allowedRules = global.config.slashConfig.allowedMembers;
     for (const rule of allowedRules) {
-        if (rule.isMatch(member)) {
-            return true;
+        switch (rule.type) {
+            case RuleType.User:
+            if (id == rule.id) return true;
+            break;
+
+            case RuleType.Role:
+            if(roleRuleMatch(id, rule)) return true;
+            break;
         }
     }
 

@@ -36,10 +36,9 @@ This is the configuration for the entire server. Format:
         "appID": "",
         "publicKey": "",
         "secret": "",
-        "allowGuild": "", // Guild ID on which to check if the user has permission to run the command.
         "port": 7900,
         "allowedMembers": [
-            {
+            { // Since role IDs are universal, this will work in any server.
                 "type": "Role", // Or "User"
                 "id": "794001861937463327"
             }
