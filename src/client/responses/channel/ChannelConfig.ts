@@ -1,3 +1,5 @@
+import type { Snowflake } from "discord.js";
+
 import { Rule } from "../../../Rule.js";
 import { parseRules } from "../../../config.js";
 
@@ -18,7 +20,7 @@ export function parseConfig(data: object): ChannelConfig {
 }
 
 export interface ChannelConfig {
-    channelID: string;
+    channelID: Snowflake;
     earliest: Date;
     blacklist: Rule[];
     log: boolean;

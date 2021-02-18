@@ -1,4 +1,7 @@
 import fs from "fs"
+
+import type { Snowflake } from "discord.js";
+
 import { Rule, RuleType } from "./Rule.js";
 
 const configJson: object = JSON.parse(fs.readFileSync("./config.json").toString());
@@ -45,7 +48,7 @@ export interface SlashConfig {
     publicKey: string;
     secret: string;
 
-    allowGuild: string;
+    allowGuild: Snowflake;
     allowedMembers: Rule[];
     port: number;
 }
