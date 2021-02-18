@@ -46,7 +46,10 @@ export class ChannelMessageQueue {
     }
 
     pop(refill: boolean = true): Message[] {
-        if (!this.internal.length) return null;
+        if (!this.internal.length) {
+            if (refill) this.fill();
+            return null;
+        }
 
         const messages = this.internal.shift();
         if (refill) this.fill();
