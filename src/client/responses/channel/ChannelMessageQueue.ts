@@ -73,7 +73,7 @@ export class ChannelMessageQueue {
         for (const msg of messages.values()) { // Can't use filter because an async function is called.
             const condition = (msg.content != null &&
                 await hasPermission(msg.author.id) &&
-                this.allowedUsage(msg.member)      &&
+                await this.allowedUsage(msg)       &&
                 msg.content != null                &&
                 msg.attachments.size == 0          &&
                 !msg.system                        &&
@@ -85,7 +85,15 @@ export class ChannelMessageQueue {
         return potentials.length ? potentials : null;
     }
 
-    private allowedUsage(member: GuildMember): boolean {
+    private async allowedUsage(msg: Message): Promise<boolean> {
+        let member: GuildMember
+        try {
+            member = msg.member ?? await msg.guild.members.fetch(msg.author.id);
+            if (!member) return false;
+        } catch {
+            return false;
+        }
+        
         const ruleMember = RuleMember.fromDiscordJS(member);
         for (const rule of this.blacklist) {
             if (rule.isMatch(ruleMember)) return false;
