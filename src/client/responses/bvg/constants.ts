@@ -25,7 +25,8 @@ export const INITIAL_MESSAGES = [
     "You know, if I were to jump from your ego to your I.Q, I would die on impact.",
     "Join my cool amogus research KTFJJY",
     "Humor is a sign of intelligence, and g\\*mers are painfully unfunny.",
-    "Reminder: G\\*mer Brain Rot is real."
+    "Reminder: G\\*mer Brain Rot is real.",
+    "I just made an entire copy of BVG, wanna join?"
 ]
 
 const TROLLFACE = `░░░░░▄▄▄▄▀▀▀▀▀▀▀▀▄▄▄▄▄▄░░░░░░░
