@@ -85,7 +85,9 @@ export const RESPONSES = [
     "What?",
     "G\\*mers don't make any sense. :rofl:",
     "Humor is a sign of intelligence, and g\\*mers are painfully unfunny.",
-    "Too long, tldr."
+    "Too long, tldr.",
+    "https://tenor.com/view/didnt-read-lol-gif-5740473",
+    "https://tenor.com/view/lightsaber-read-did-not-read-too-long-gif-4518927"
 ]
 
 export const LINK_RESPONSE = [
