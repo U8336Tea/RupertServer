@@ -86,8 +86,13 @@ export const RESPONSES = [
     "G\\*mers don't make any sense. :rofl:",
     "Humor is a sign of intelligence, and g\\*mers are painfully unfunny.",
     "Too long, tldr.",
+    "I just received a note from your teacher and they are very mad at you for skipping school.",
+    "That is literally not possible in any way.",
+    "You just proved it yourself.",
     "https://tenor.com/view/didnt-read-lol-gif-5740473",
-    "https://tenor.com/view/lightsaber-read-did-not-read-too-long-gif-4518927"
+    "https://tenor.com/view/lightsaber-read-did-not-read-too-long-gif-4518927",
+    "https://media.discordapp.net/attachments/805265813959082004/812419161598459965/image0.gif",
+    "https://cdn.discordapp.com/attachments/364960295094845452/812785225330982942/Screenshot_2021-02-20-17-36-23.png"
 ]
 
 export const LINK_RESPONSE = [
@@ -102,7 +107,8 @@ export const PROOF_RESPONSE = [
     "Proof: man URINATES on fellow passager for not being allowed to smoke",
     "See https://trollface.dk for proof.",
     "https://www.thedartmouth.com/article/2018/10/dartmouth-study-finds-link-between-violent-video-games-and-aggressive-behavior",
-    "susan is the love of my life"
+    "susan is the love of my life",
+    "Here's your proof https://www.youtube.com/watch?v=5t53TcKIlMc"
 ]
 
 export const TROLL_PASTA = `No. This is not a satire.
