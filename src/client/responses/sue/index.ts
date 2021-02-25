@@ -39,8 +39,11 @@ export default class implements MessageProvider {
 
             this.lyrics = lyrics
                 .replaceAll(/\n{2,}/g, "\n")
-                .split("\n")
-                .slice(1);
+                .split("\n");
+
+            if (this.lyrics[0].toLowerCase().includes("sue")) {
+                this.lyrics = this.lyrics.slice(1);
+            }
         } catch {
             this.lyrics = null;
             this.fallback = new BVG();
