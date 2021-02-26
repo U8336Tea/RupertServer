@@ -30,7 +30,7 @@ export default class implements MessageProvider {
         } else if (!content.match(/[a-zA-Z]/)) { // User sent a message like "..."
             return "Speak American. You're virtually incoherent.";
         } else if (content.includes("valid argument") || content.includes("actual argument")) {
-            return "Okay. " + randElement(constants.RESPONSES);
+            return "Okay. " + randElement(constants.INITIAL_MESSAGES);
         } else if (content.includes(" troll") || content.includes(" satire")) {
             if (rand(4) == 0) return randElement(constants.RESPONSES);
     
