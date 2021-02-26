@@ -36,7 +36,7 @@ export async function hasPermission(id: Snowflake): Promise<boolean> {
             break;
 
             case RuleType.Role:
-            if(roleRuleMatch(id, rule)) return true;
+            if(await roleRuleMatch(id, rule)) return true;
             break;
         }
     }
