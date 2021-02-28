@@ -1,5 +1,6 @@
-import { DMChannel, Message, User } from "discord.js";
+import { DMChannel, Message } from "discord.js";
 
+import { sleep } from "../../common.js";
 import { hasPermission, pathSafe } from "../common.js";
 
 export default async function(message: Message) {
@@ -7,7 +8,9 @@ export default async function(message: Message) {
     if (!(await hasPermission(message.author.id))) {
         if (message.author.id == global.discord.user.id) return;
         try {
-            message.reply("tldr");
+            message.channel.startTyping().catch();
+            await sleep(2000);
+            await message.reply("tldr");
         } catch {}
         return;
     }
