@@ -12,6 +12,7 @@ export default async function(message: Message) {
             message.channel.startTyping().catch();
             await sleep(2000);
             await message.reply("tldr");
+            message.channel.stopTyping();
         } catch {}
         return;
     }
