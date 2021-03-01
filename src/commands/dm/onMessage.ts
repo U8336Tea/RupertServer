@@ -8,6 +8,7 @@ export default async function(message: Message) {
     if (!(await hasPermission(message.author.id))) {
         if (message.author.id == global.discord.user.id) return;
         try {
+            await sleep(5000);
             message.channel.startTyping().catch();
             await sleep(2000);
             await message.reply("tldr");
