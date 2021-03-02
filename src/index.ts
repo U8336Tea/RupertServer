@@ -28,7 +28,7 @@ oauth(slashConfig.appID, slashConfig.secret, "applications.commands%20applicatio
     const creator = new SlashCreator({
         applicationID: slashConfig.appID,
         publicKey: slashConfig.publicKey,
-        token: "Bearer " + token,
+        token: token,
         serverHost: "0.0.0.0",
         serverPort: slashConfig.port
     });
