@@ -30,7 +30,7 @@ export default function (id: string, secret: string, scope: string): Promise<str
             res.on("end", () => {
                 const body = Buffer.concat(data).toString();
                 const json = JSON.parse(body);
-                resolve(json["access_token"]);
+                resolve(`${json["token_type"]} ${json["access_token"]}`);
             });
 
             res.on("error", err => {
