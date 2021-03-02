@@ -24,7 +24,7 @@ const fastifyOpts = {
     }
 }
 
-oauth(slashConfig.appID, slashConfig.secret, "applications.commands").then(token => {
+oauth(slashConfig.appID, slashConfig.secret, "applications.commands%20applications.commands.update").then(token => {
     const creator = new SlashCreator({
         applicationID: slashConfig.appID,
         publicKey: slashConfig.publicKey,
