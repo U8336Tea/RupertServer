@@ -10,7 +10,7 @@ import { MessageProvider } from "../../MessageProvider.js";
 import { ChannelConfig, parseConfig } from "./ChannelConfig.js";
 import { ChannelMessageQueue } from "./ChannelMessageQueue.js";
 
-const MAX_QUEUE = 25;
+const MAX_QUEUE = 10;
 
 export default class implements MessageProvider {
     private fallback = new BVG(); // In case we can't get any suitable messages
@@ -35,12 +35,11 @@ export default class implements MessageProvider {
                         return;
                     }
 
-                    this.queue = global["channelMessageQueue"] ?? new ChannelMessageQueue(MAX_QUEUE,
-                                                                    config.earliest.getTime(),
-                                                                    channel,
-                                                                    this.config.blacklist);
+                    this.queue = new ChannelMessageQueue(MAX_QUEUE,
+                                                        config.earliest.getTime(),
+                                                        channel,
+                                                        this.config.blacklist);
 
-                    global["channelMessageQueue"] = this.queue;
                     this.channel = channel;
                 })
 
