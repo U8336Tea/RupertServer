@@ -63,7 +63,7 @@ export class Responder extends EventEmitter {
         this.client.on("message", handler);
         this.handlers.push(handler);
 
-        if (this.timeoutInterval) this.timeoutObject = setTimeout(this.timedOut, this.timeoutInterval);
+        if (this.timeoutInterval) this.timeoutObject = setTimeout(() => this.timedOut, this.timeoutInterval);
 
         this.emit("ready");
     }
@@ -87,7 +87,7 @@ export class Responder extends EventEmitter {
 
     private resetTimer() {
         clearTimeout(this.timeoutObject);
-        this.timeoutObject = setTimeout(this.timedOut, this.timeoutInterval);
+        this.timeoutObject = setTimeout(() => this.timedOut(), this.timeoutInterval);
     }
 
     private getMessageHandler(channel: Channel): MessageHandler {
@@ -127,7 +127,7 @@ export class Responder extends EventEmitter {
 
             console.log(e);
         }
-        
+
         if (!reply) return;
 
         const opts: MessageOptions = {
