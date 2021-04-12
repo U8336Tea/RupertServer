@@ -127,6 +127,7 @@ export class Responder extends EventEmitter {
 
             console.log(e);
         }
+        
         if (!reply) return;
 
         const opts: MessageOptions = {
@@ -179,6 +180,7 @@ export class Responder extends EventEmitter {
 
     private async onMiscMessage(message: Message) {
         const author = message.member;
+        if (!author) return;
 
         for (const rule of this.targetRules) {
             if (rule.isMatch(RuleMember.fromDiscordJS(author))) return this.respond(message);
