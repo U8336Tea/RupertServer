@@ -89,8 +89,10 @@ export const RESPONSES = [
     "I just received a note from your teacher and they are very mad at you for skipping school.",
     "That is literally not possible in any way.",
     "You just proved it yourself.",
+    "Shut up.",
     "https://tenor.com/view/didnt-read-lol-gif-5740473",
     "https://tenor.com/view/lightsaber-read-did-not-read-too-long-gif-4518927",
+    "https://tenor.com/view/smosh-shut-up-funny-lmao-cursed-ian-anthony-food-battle-gif-18751780",
     "https://media.discordapp.net/attachments/805265813959082004/812419161598459965/image0.gif",
     "https://cdn.discordapp.com/attachments/364960295094845452/812785225330982942/Screenshot_2021-02-20-17-36-23.png"
 ]
