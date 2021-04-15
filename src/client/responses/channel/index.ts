@@ -53,6 +53,9 @@ export default class implements MessageProvider {
     }
 
     async response(message: Message): Promise<string> {
+        const content = message.content.toLowerCase();
+        if (content.includes("reply if") || content.includes("reply to me")) return;
+
         if (!this.config || !this.channel) return await this.fallback.response(message);
         switch (rand(16)) {
             case 0:
@@ -61,7 +64,6 @@ export default class implements MessageProvider {
                 return await this.fallback.initialMessage();
         }
 
-        const content = message.content.toLowerCase();
         if (content.length < 4) {
             return null;
         } else if (!message.content.match(/[a-zA-Z]/) || rand(128) == 0) {
