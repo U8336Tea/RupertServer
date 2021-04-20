@@ -39,18 +39,22 @@ export class Responder extends EventEmitter {
     private _destroyed: boolean = false;
     get destroyed() { return this._destroyed }
 
+    public timeoutInterval?: number;
+
+    // Minimum/maximum type time in seconds
+    public minTypeTime = 4;
+    public maxTypeTime = 10;
+
     private client: Client;
-    private timeoutInterval?: number;
     private timeoutObject: NodeJS.Timeout;
     private provider: MessageProvider;
     private handlers: MessageHandler[] = [];
     private readonly typeMutex: Mutex = new Mutex();
 
-    constructor(client: Client, provider: MessageProvider, timeoutInterval: number = null, target: Rule[], blacklist: Rule[]) {
+    constructor(client: Client, provider: MessageProvider, target: Rule[], blacklist: Rule[]) {
         super();
         
         this.client = client;
-        this.timeoutInterval = timeoutInterval;
         this.provider = provider;
         this.targetRules = target;
         this.blacklistRules = blacklist;
@@ -73,7 +77,7 @@ export class Responder extends EventEmitter {
         this.emit("log", "Initial message: " + message);
 
         channel.startTyping().catch(e => this.handleAPIError(e));
-        await sleep(rand(7, 2) * 1000);
+        await sleep(rand(this.maxTypeTime, this.minTypeTime) * 1000);
         channel.stopTyping();
 
         try{
@@ -143,8 +147,7 @@ export class Responder extends EventEmitter {
             await sleep(rand(3, 1) * 1000);
 
             channel.startTyping().catch(e => this.handleAPIError(e));
-            await sleep(rand(5, 2) * 1000);
-            await sleep(rand(2, 0) * 1000);
+            await sleep(rand(this.maxTypeTime, this.minTypeTime) * 1000);
             channel.stopTyping();
 
             try {

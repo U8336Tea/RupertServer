@@ -4,6 +4,8 @@ import { ruleFromObject } from "../config.js";
 export interface ResponderConfig {
     vocabulary: string;
     timeoutInterval?: number;
+    minTypeTime?: number;
+    maxTypeTime?: number;
 
     rules: Rule[];
     blacklist: Rule[];
@@ -17,10 +19,7 @@ export function getResponderConfig(json: string): ResponderConfig {
     for (const rule of configObject["rules"] ?? []) rules.push(ruleFromObject(rule));
     for (const rule of configObject["blacklist"] ?? []) blacklist.push(ruleFromObject(rule));
 
-    return {
-        vocabulary: configObject["vocabulary"] ?? "bvg",
-        timeoutInterval: configObject["timeoutInterval"],
-        rules: rules,
-        blacklist: blacklist
-    };
+    configObject.rules = rules;
+    configObject.blacklist = blacklist;
+    return configObject;
 }
