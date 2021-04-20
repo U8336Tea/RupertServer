@@ -65,7 +65,11 @@ export function findConfig(guildID: Snowflake, channelID: Snowflake): ResponderC
 export function startResponder(config: ResponderConfig, channelID: Snowflake) {
     const { default: ResponseProvider } = require(`../client/responses/${config.vocabulary}/index.js`);
 
-    const responder = new Responder(global.discord, new ResponseProvider(), config.timeoutInterval, config.rules, config.blacklist);
+    const responder = new Responder(global.discord, new ResponseProvider(), config.rules, config.blacklist);
+    responder.timeoutInterval = config.timeoutInterval;
+    responder.minTypeTime = config.minTypeTime ?? responder.minTypeTime;
+    responder.maxTypeTime = config.maxTypeTime ?? responder.maxTypeTime;
+
     global.responders.set(channelID, responder);
     responder.on("log", console.log);
     responder.on("destroy", () => global.responders.delete(channelID));
