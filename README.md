@@ -69,7 +69,8 @@ This is the configuration for the entire server. Format:
 ```json
 {
     "channelID": "",
-    "earliest": "", // The earliest we can query from the channel.
+    "earliest": "", // The earliest we can query from the channel. Default: the date the channel was created
+    "latest": "", // The latest we can query from this channel. Optional.
     "log": true, // Whether to log these messages to console. Default: false
     "blacklist": [ // The messages not to send.
         { "type": "User", "id": "0" },

@@ -36,9 +36,10 @@ export default class implements MessageProvider {
                     }
 
                     this.queue = new ChannelMessageQueue(MAX_QUEUE,
-                                                        config.earliest.getTime(),
+                                                        config.earliest,
+                                                        config.latest,
                                                         channel,
-                                                        this.config.blacklist);
+                                                        config.blacklist);
 
                     this.channel = channel;
                 })
