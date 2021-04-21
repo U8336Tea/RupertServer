@@ -8,6 +8,7 @@ import { Rule, RuleMember } from "../../../Rule.js";
 export class ChannelMessageQueue {
     maxLength: number;
     earliest: number;
+    latest?: number = null;
     channel: TextChannel;
     blacklist: Rule[];
 
@@ -15,13 +16,15 @@ export class ChannelMessageQueue {
     private filling: boolean = false;
 
     constructor(maxLength: number,
-        earliest: number,
+        earliest: Date,
+        latest: Date,
         channel: TextChannel,
         blacklist: Rule[],
         fill: boolean = true) {
 
         this.maxLength = maxLength;
-        this.earliest = earliest;
+        this.earliest = earliest.getTime();
+        if (latest) this.latest = latest.getTime();
         this.channel = channel;
         this.blacklist = blacklist;
         if (fill) this.fill();
@@ -58,7 +61,7 @@ export class ChannelMessageQueue {
 
     private async getPotentials(): Promise<Message[]> {
         // Find a random message within the channel.
-        const timestamp = rand(Date.now(), this.earliest);
+        const timestamp = rand(this.latest ?? Date.now(), this.earliest);
         const date = new Date(timestamp);
         const snowflake = SnowflakeUtil.generate(date);
 

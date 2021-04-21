@@ -1,27 +1,26 @@
+import { SnowflakeUtil } from "discord.js";
 import type { Snowflake } from "discord.js";
 
 import { Rule } from "../../../Rule.js";
 import { parseRules } from "../../../config.js";
 
-export function parseConfig(data: object): ChannelConfig {
-    if (!data["channelID"] || !data["earliest"]) return null;
+export function parseConfig(data: any): ChannelConfig {
+    if (!data.channelID) return null;
 
-    const blacklist = data["blacklist"] ?? [];
-    if (!blacklist) return null;
+    if (data.earliest) data.earliest = new Date(data.earliest);
+    else data.earliest = SnowflakeUtil.deconstruct(data.channelID).date;
 
-    const rules: Rule[] = parseRules(blacklist);
+    if (data.latest) data.latest = new Date(data.latest);
+    data.blacklist = parseRules(data.blacklist ?? []);
+    data.log = data.log ?? false;
 
-    return {
-        channelID: data["channelID"],
-        earliest: new Date(data["earliest"]),
-        blacklist: rules,
-        log: data["log"] ?? false
-    };
+    return data;
 }
 
 export interface ChannelConfig {
     channelID: Snowflake;
-    earliest: Date;
+    earliest?: Date;
+    latest?: Date;
     blacklist: Rule[];
     log: boolean;
 }
