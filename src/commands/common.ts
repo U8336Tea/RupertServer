@@ -4,9 +4,9 @@ import { DiscordAPIError, Guild, GuildMember, TextChannel } from "discord.js";
 import type { Snowflake } from "discord.js";
 
 import { Rule, RuleMember, RuleType } from "../Rule.js";
-import { Responder } from "../client/Responder.js";
-import { getResponderConfig } from "../client/ResponderConfig.js";
-import type { ResponderConfig } from "../client/ResponderConfig.js";
+import { DiscordResponder } from "../client/discord/DiscordResponder.js";
+import { getResponderConfig } from "../client/discord/DiscordResponderConfig.js";
+import type { DiscordResponderConfig } from "../client/discord/DiscordResponderConfig.js";
 
 async function roleRuleMatch(id: Snowflake, rule: Rule): Promise<boolean> {
     const guildID = global.roleCache.get(rule.id);
@@ -44,7 +44,7 @@ export async function hasPermission(id: Snowflake): Promise<boolean> {
     return false;
 }
 
-export function findConfig(guildID: Snowflake, channelID: Snowflake): ResponderConfig {
+export function findConfig(guildID: Snowflake, channelID: Snowflake): DiscordResponderConfig {
     function load(url: URL): string {
         return fs.existsSync(url)            ?
             fs.readFileSync(url).toString()  :
@@ -62,10 +62,10 @@ export function findConfig(guildID: Snowflake, channelID: Snowflake): ResponderC
     return getResponderConfig(file);
 }
 
-export function startResponder(config: ResponderConfig, channelID: Snowflake) {
+export function startResponder(config: DiscordResponderConfig, channelID: Snowflake) {
     const { default: ResponseProvider } = require(`../client/responses/${config.vocabulary}/index.js`);
 
-    const responder = new Responder(global.discord, new ResponseProvider(), config.rules, config.blacklist);
+    const responder = new DiscordResponder(global.discord, new ResponseProvider(), config.rules, config.blacklist);
     responder.timeoutInterval = config.timeoutInterval;
     responder.minTypeTime = config.minTypeTime ?? responder.minTypeTime;
     responder.maxTypeTime = config.maxTypeTime ?? responder.maxTypeTime;
