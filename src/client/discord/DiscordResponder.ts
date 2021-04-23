@@ -150,6 +150,8 @@ export class DiscordResponder extends EventEmitter {
             await sleep(rand(this.maxTypeTime, this.minTypeTime) * 1000);
             channel.stopTyping();
 
+            if (this.destroyed) return;
+
             try {
                 await message.reply(reply, opts);
             } catch (e: unknown) {
