@@ -10,7 +10,7 @@ export default class implements MessageProvider {
         return this.rectify(await this.provider.initialMessage());
     }
 
-    async response(message: Message): Promise<string> {
+    async response(message: string): Promise<string> {
         return this.rectify(await this.provider.response(message));
     }
 

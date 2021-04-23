@@ -10,5 +10,5 @@ export default class implements MessageProvider {
     }
 
     async initialMessage(): Promise<string> { return this.getMessage(); }
-    async response(_: Message): Promise<string> { return this.getMessage(); }
+    async response(_: string): Promise<string> { return this.getMessage(); }
 }

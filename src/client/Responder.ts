@@ -118,7 +118,7 @@ export class Responder extends EventEmitter {
 
         const channel = message.channel;
         try {
-            var reply = await this.provider.response(message);
+            var reply = await this.provider.response(message.content);
             this.emit("log", `\nMessage received: ${message.content}`);
             this.emit("log", `Reply: ${reply}`);
         } catch (e: unknown) {
