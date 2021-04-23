@@ -24,7 +24,7 @@ export declare interface Responder {
     on(event: 'timeout', handler: () => void): this;
     once(event: 'timeout', handler: () => void): this;
     emit(event: 'timeout'): boolean;
-    off(event: 'destroy', handler: () => void): this;
+    off(event: 'timeout', handler: () => void): this;
 
     on(event: 'destroy', handler: () => void): this;
     once(event: 'destroy', handler: () => void): this;
