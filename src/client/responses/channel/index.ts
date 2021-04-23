@@ -53,9 +53,8 @@ export default class implements MessageProvider {
         return this.fallback.initialMessage();
     }
 
-    async response(message: Message): Promise<string> {
-        const content = message.content.toLowerCase();
-        if (content.includes("reply if") || content.includes("reply to me")) return;
+    async response(message: string): Promise<string> {
+        if (message.includes("reply if") || message.includes("reply to me")) return;
 
         if (!this.config || !this.channel) return await this.fallback.response(message);
         switch (rand(16)) {
@@ -65,13 +64,13 @@ export default class implements MessageProvider {
                 return await this.fallback.initialMessage();
         }
 
-        if (content.length < 4) {
+        if (message.length < 4) {
             return null;
-        } else if (!message.content.match(/[a-zA-Z]/) || rand(128) == 0) {
+        } else if (!message.match(/[a-zA-Z]/) || rand(128) == 0) {
             return "speak american, i cant understand you";
-        } else if (content.includes("kill myself")) {
+        } else if (message.includes("kill myself")) {
             return await this.fallback.response(message);
-        } else if (content.includes("bot") && rand(256) != 0) {
+        } else if (message.includes("bot") && rand(256) != 0) {
             return await this.fallback.response(message);
         }
 

@@ -1,5 +1,3 @@
-import type { Message } from "discord.js";
-
 export class ErrorMessage extends Error {
     readonly message: string;
 
@@ -15,5 +13,5 @@ export class ErrorMessage extends Error {
 
 export interface MessageProvider {
     initialMessage(): Promise<string>;
-    response(message: Message): Promise<string>;
+    response(message: string): Promise<string>;
 }

@@ -14,7 +14,7 @@ export default class implements MessageProvider {
         return lyric;
     }
 
-    response(message: Message): Promise<string> {
+    response(message: string): Promise<string> {
         const lyric = this.getMessage();
         if (!lyric) return this.fallback.response(message);
         return lyric;
