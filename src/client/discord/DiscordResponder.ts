@@ -3,14 +3,14 @@ import EventEmitter from "events";
 import { Channel, Client, DiscordAPIError, Message, MessageOptions, TextChannel } from "discord.js";
 import { Mutex } from "async-mutex";
 
-import { rand, sleep } from "../common.js";
-import { ErrorMessage } from "./MessageProvider.js";
-import type { MessageProvider } from "./MessageProvider.js";
-import { Rule, RuleMember } from "../Rule.js";
+import { rand, sleep } from "../../common.js";
+import { ErrorMessage } from "../MessageProvider.js";
+import type { MessageProvider } from "../MessageProvider.js";
+import { Rule, RuleMember } from "../../Rule.js";
 
 type MessageHandler = (message: Message) => (void);
 
-export declare interface Responder {
+export declare interface DiscordResponder {
     on(event: 'ready', handler: () => void): this;
     once(event: 'ready', handler: () => void): this;
     emit(event: 'ready'): boolean;
@@ -32,7 +32,7 @@ export declare interface Responder {
     off(event: 'destroy', handler: () => void): this;
 }
 
-export class Responder extends EventEmitter {
+export class DiscordResponder extends EventEmitter {
     targetRules: Rule[];
     blacklistRules: Rule[];
 

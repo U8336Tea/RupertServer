@@ -1,7 +1,7 @@
-import { Rule } from "../Rule.js";
-import { ruleFromObject } from "../config.js";
+import { Rule } from "../../Rule.js";
+import { ruleFromObject } from "../../config.js";
 
-export interface ResponderConfig {
+export interface DiscordResponderConfig {
     vocabulary: string;
     timeoutInterval?: number;
     minTypeTime?: number;
@@ -11,7 +11,7 @@ export interface ResponderConfig {
     blacklist: Rule[];
 }
 
-export function getResponderConfig(json: string): ResponderConfig {
+export function getResponderConfig(json: string): DiscordResponderConfig {
     const configObject = JSON.parse(json);
     const rules = [];
     const blacklist = [];
