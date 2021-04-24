@@ -1,10 +1,9 @@
 import fs from "fs";
 import path from "path";
 
-import { TextChannel, SnowflakeUtil } from "discord.js";
-import type { Message } from "discord.js";
+import { TextChannel } from "discord.js";
 
-import BVG from "../bvgold/index.js";
+import BVG from "../bvg/index.js";
 import { rand, randElement } from "../../../common.js";
 import { MessageProvider } from "../../MessageProvider.js";
 import { ChannelConfig, parseConfig } from "./ChannelConfig.js";
