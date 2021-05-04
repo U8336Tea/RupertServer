@@ -15,13 +15,15 @@ export default class implements MessageProvider {
     }
 
     rectify(message: string): string {
-        message = message.replaceAll(/g\\*mer/i, "conservative");
-        message = message.replaceAll(/g*mer/i, "trump supporter");
-        message = message.replaceAll(/gamer/i, "trumper");
+        if (message == null || message == "") return null;
 
-        message = message.replaceAll(/g\\*ming/i, "conservatism");
-        message = message.replaceAll(/g*ming/i, "trump loving");
-        message = message.replaceAll(/gaming/i, "support for trump");
+        message = message.replaceAll(/g\\*mer/ig, "conservative");
+        message = message.replaceAll(/g*mer/ig, "trump supporter");
+        message = message.replaceAll(/gamer/ig, "trumper");
+
+        message = message.replaceAll(/g\\*ming/ig, "conservatism");
+        message = message.replaceAll(/g*ming/ig, "trump loving");
+        message = message.replaceAll(/gaming/ig, "support for trump");
 
         return message;
     }
