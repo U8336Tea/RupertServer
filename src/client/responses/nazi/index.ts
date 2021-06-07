@@ -25,6 +25,10 @@ export default class implements MessageProvider {
         message = message.replaceAll(/g\\*ming/ig, "trump loving");
         message = message.replaceAll(/gaming/ig, "support for trump");
 
+        message = message.replaceAll(/g\\\*mes/ig, "the art of the deal");
+        message = message.replaceAll(/g\*mes/ig, "conservative values");
+        message = message.replaceAll(/games/ig, "trump");
+
         return message;
     }
 }
