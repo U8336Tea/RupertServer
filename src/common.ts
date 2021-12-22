@@ -1,6 +1,7 @@
 import { randomInt } from 'crypto'
 
 export function rand(max: number, min: number = 0): number {
+    if (min == max) return max;
     return randomInt(min, max);
 }
 
