@@ -4,7 +4,7 @@ import { findConfig, pathSafe, startResponder } from "./common.js";
 
 export default function(guildID: Snowflake, channelID: Snowflake, name: string, vocabulary: string = null): string {
     const currentResponder = global.responders.get(channelID);
-    if (currentResponder && !currentResponder.destroyed) return;
+    if (currentResponder && !currentResponder.destroyed) return "Rupert already started.";
 
     const channel = global.discord.channels.resolve(channelID) as TextChannel;
     const perms = channel.permissionsFor(global.discord.user);
