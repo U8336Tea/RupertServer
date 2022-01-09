@@ -5,6 +5,7 @@ function destroy(id: Snowflake): Boolean {
     if (!responder) return false;
     responder.destroy();
     global.responders.delete(id);
+    return true;
 }
 
 export default function(message: Message, command: string[]) {
