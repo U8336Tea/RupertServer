@@ -2,12 +2,16 @@ import { Channel, TextChannel, Message } from "discord.js";
 
 import start from "../startCommand.js";
 
-const USAGE = "start <channel id> [vocabulary name]"
+const HELP = `
+Usage: \`start [channel id] (vocabulary name)\`
+
+Starts Rupert on a channel.
+`;
 
 export default function(message: Message, command: string[]) {
     const length = command.length;
     if (length < 2) {
-        message.reply(`Usage: ${USAGE}`);
+        message.reply(HELP);
         return;
     }
     

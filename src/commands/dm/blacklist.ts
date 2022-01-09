@@ -2,11 +2,15 @@ import type { Message } from "discord.js";
 
 import { Rule, RuleType } from "../../Rule";
 
-const USAGE = "blacklist <channel id> <rule type (user or role)> <id>"
+const HELP = `
+Usage: \`blacklist [channel id] [rule type] [id]\`
+
+Prevents Rupert from responding to anyone who matches the specified rule. Rule type can be either user or role.
+`;
 
 export default function(message: Message, command: string[]) {
     if (command.length < 4) {
-        message.reply(`Usage: ${USAGE}`);
+        message.reply(HELP);
         return;
     }
 
