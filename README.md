@@ -22,6 +22,33 @@ used to change out vocabularies.
 
 Vocabularies are loaded from `client/responses/{name}/index.js`.
 
+# DM COMMANDS
+Keep in mind that for these commands, \[square brackets\] indicate required
+arguments and (parentheses) indicate optional arguments.
+
+## start
+Usage: `start [channel id] (vocabulary name)`
+
+Starts Rupert on a channel.
+
+## shutdown
+Usage: `shutdown (channel id)`
+
+Shuts Rupert down on a channel. If no channel ID is given, shuts Rupert down
+on all channels.
+
+## blacklist
+Usage: `blacklist [channel id] [rule type] [id]`
+
+Prevents Rupert from responding to anyone who matches the specified rule. Rule
+type can be either user or role.
+
+## target
+Usage: `target [channel id] [rule type] [id]`
+
+Prevents Rupert from responding to anyone who does NOT match the specified rule.
+Rule type can be either user or role.
+
 # CONFIGURATION
 ## config.json
 This is the configuration for the entire server. Format:
