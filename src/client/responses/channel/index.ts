@@ -79,6 +79,7 @@ export default class implements MessageProvider {
 
             const responseMessage = randElement(potentials);
             if (this.config.log) {
+                console.log();
                 console.log(`Sending message from ${responseMessage.author.tag}`)
                 console.log(`at https://discord.com/channels/${responseMessage.guild.id}/` +
                     `${responseMessage.channel.id}/${responseMessage.id}`);
