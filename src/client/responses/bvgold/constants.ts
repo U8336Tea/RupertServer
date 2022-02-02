@@ -68,6 +68,7 @@ export const RESPONSES = [
     "Ok and? Didn't ask.",
     "@everyone I LOVE MR. CRAP AND I'M NOT AFRAID TO SHOW IT!",
     "Go back to your Klan rally, Adolf Hitler.",
+    "Thank God you finally rejected g\\*ming and got smart.",
     "https://tenor.com/view/failure-fail-andy-the-office-gif-6079363",
     "https://tenor.com/view/spiderman-thats-it-gonna-cry-tobey-maguire-are-you-going-to-cry-gif-17698704",
     "https://tenor.com/view/cope-seethe-cope-cope-gif-19299672",
