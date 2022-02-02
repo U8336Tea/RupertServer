@@ -1,10 +1,10 @@
 import type { Message } from "discord.js";
 
-import Channel from "../channel/index.js";
+import BVG from "../bvgold/index.js";
 import { MessageProvider } from "../../MessageProvider.js";
 
 export default class implements MessageProvider {
-    private provider = new Channel();
+    private provider = new BVG();
 
     async initialMessage(): Promise<string> {
         return this.rectify(await this.provider.initialMessage());
