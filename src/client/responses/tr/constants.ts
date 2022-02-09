@@ -248,5 +248,6 @@ export const MESSAGES = [
     `ngl i think that we should make a few troll responses for when the g\*mers ask for proof`,
     `bring back big chungus line`,
     `suggest rupert lines`,
-    `gamer destroyer only`
+    `gamer destroyer only`,
+    `make rupert have a 1% chance to send his code :troll:`
 ]

@@ -27,7 +27,13 @@ export const INITIAL_MESSAGES = [
     "Humor is a sign of intelligence, and g\\*mers are painfully unfunny.",
     "Reminder: G\\*mer Brain Rot is real.",
     "I just made an entire copy of BVG, wanna join?",
-    "DEAR G\\*MMIES: You should have picked mercy. You should have picked any kind of support. - James 2:13"
+    "DEAR G\\*MMIES: You should have picked mercy. You should have picked any kind of support. - James 2:13",
+    "Do any of these suggestions actually get added?",
+    "I HATE G\\*MING",
+    "Dear g\\*mers: You should repent to Jesus Christ... NOW!",
+    `"The Lord laughs at the g*mers, For He sees their day is coming."
+    - Psalm 37:13"`,
+    `Read this message or else you will die within 3 days. There was once a man who lived on a farm and he had trouble keeping rabbits away from his crops. One time he trapped a rabbit in a hole he dug and nailed the board so it would not escape. "That'll hold em' alright, hehehehe" he said to himself as he walked away. He suddenly heard large footsteps coming from the hole he dug. The board then started to open slowly. He was never seen again. Share this to 15 other people or you will suffer a horrible fate.`
 ]
 
 const TROLLFACE = `░░░░░▄▄▄▄▀▀▀▀▀▀▀▀▄▄▄▄▄▄░░░░░░░
@@ -67,7 +73,6 @@ export const RESPONSES = [
     "Bruh. Brooooooooo. Bruh.",
     "Read, I did not.",
     "oj my god",
-    "Does anyone even monitor this channel anymore?",
     "Our arguments are facts and logic themselves; they are pure and cannot be wrog how so ever.",
     "If g*mes are good, then why does the bible say they are bad?",
     "Discrimination against g*mers is 100% fully justified. If you were really a Christian, you’d know this. The Bible speaks on this multiple times.",
@@ -96,11 +101,27 @@ export const RESPONSES = [
     "Cry harder Nazi.",
     "I'm glad you finally came to your senses and rejected g\\*ming.",
     "You finally rejected g\\*ming! :hugging:",
+    "Listen kiddo, everyone has their own opinions. Just because someone doesn't like your waifu doesn't mean you needa be mad",
+    "Did I ask for your opinion? No.",
+    "k.",
+    "Literally who cares",
+    "Susan my beloved",
+    "Ow! My Freddy Fazballs!",
+    "That's because I won and you're just mad.",
+    "I am past the brink of insanity. I have met god and he is no match for me. I no longer fear death and I know that mortals like myself are meaningless in this universe.",
+    `You seem to be addicted to g\\*mes. Try signing up to G\\*me Quitters to fight your addiction. 🙏 
+    https://gamequitters.com/`,
+    "https://tenor.com/view/community-donald-glover-troy-barnes-thats-racist-racist-gif-4440580",
     "https://tenor.com/view/didnt-read-lol-gif-5740473",
+    "https://tenor.com/view/mike-tomlin-wedonotcare-gif-23150837",
     "https://tenor.com/view/lightsaber-read-did-not-read-too-long-gif-4518927",
     "https://tenor.com/view/smosh-shut-up-funny-lmao-cursed-ian-anthony-food-battle-gif-18751780",
+    "https://tenor.com/view/shut-up-man-will-you-gif-18636332",
+    "https://tenor.com/view/ben-shapiro-hilarious-thats-gif-13286504",
+    "https://tenor.com/view/fred-fred-the-movie-shocked-surprised-fred-figglehorn-gif-22939966",
     "https://media.discordapp.net/attachments/805265813959082004/812419161598459965/image0.gif",
-    "https://cdn.discordapp.com/attachments/364960295094845452/812785225330982942/Screenshot_2021-02-20-17-36-23.png"
+    "https://cdn.discordapp.com/attachments/364960295094845452/812785225330982942/Screenshot_2021-02-20-17-36-23.png",
+    "https://cdn.discordapp.com/attachments/784627509282603029/853125077163573248/personatale.mp4"
 ]
 
 export const LINK_RESPONSE = [
@@ -116,7 +137,8 @@ export const PROOF_RESPONSE = [
     "See https://trollface.dk for proof.",
     "https://www.thedartmouth.com/article/2018/10/dartmouth-study-finds-link-between-violent-video-games-and-aggressive-behavior",
     "susan is the love of my life",
-    "Here's your proof https://www.youtube.com/watch?v=5t53TcKIlMc"
+    "Here's your proof https://www.youtube.com/watch?v=5t53TcKIlMc",
+    "This should be proof enough https://www.youtube.com/watch?v=EHmC2D0_Hdg"
 ]
 
 export const TROLL_PASTA = `No. This is not a satire.
