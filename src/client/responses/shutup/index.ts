@@ -8,7 +8,8 @@ export default class implements MessageProvider {
         return Promise.resolve("yo");
     }
 
-    response(message: string): Promise<string> {
+    response(msg: string): Promise<string> {
+        const message = msg.toLowerCase();
         if (message.includes("reply if") || message.includes("reply to me")) return Promise.resolve(null);
 
         if (rand(64) == 0) return Promise.resolve("shut the fuck up");

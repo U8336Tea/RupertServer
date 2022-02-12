@@ -52,13 +52,14 @@ export default class implements MessageProvider {
         return this.fallback.initialMessage();
     }
 
-    async response(message: string): Promise<string> {
+    async response(msg: string): Promise<string> {
+        const message = msg.toLowerCase();
         if (message.includes("reply if") || message.includes("reply to me")) return;
 
-        if (!this.config || !this.channel) return await this.fallback.response(message);
+        if (!this.config || !this.channel) return await this.fallback.response(msg);
         switch (rand(16)) {
             case 0:
-                return await this.fallback.response(message);
+                return await this.fallback.response(msg);
             case 1:
                 return await this.fallback.initialMessage();
         }
@@ -68,14 +69,14 @@ export default class implements MessageProvider {
         } else if (!message.match(/[a-zA-Z]/) || rand(128) == 0) {
             return "speak american, i cant understand you";
         } else if (message.includes("kill myself")) {
-            return await this.fallback.response(message);
+            return await this.fallback.response(msg);
         } else if (message.includes("bot") && rand(256) != 0) {
-            return await this.fallback.response(message);
+            return await this.fallback.response(msg);
         }
 
         try {
             const potentials = this.queue.pop();
-            if (!potentials) return await this.fallback.response(message);
+            if (!potentials) return await this.fallback.response(msg);
 
             const responseMessage = randElement(potentials);
             if (this.config.log) {
@@ -88,11 +89,11 @@ export default class implements MessageProvider {
             const response = responseMessage.content.replaceAll(/<@.?\d+>/g, "");
 
             // If response is empty, not including spaces
-            if (response.replaceAll(" ", "").length == 0) return await this.fallback.response(message);
+            if (response.replaceAll(" ", "").length == 0) return await this.fallback.response(msg);
             return response;
         } catch(e) {
             console.error(e);
-            return await this.fallback.response(message);
+            return await this.fallback.response(msg);
         }
     }
 }
