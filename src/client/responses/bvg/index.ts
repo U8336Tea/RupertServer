@@ -37,7 +37,7 @@ export default class implements MessageProvider {
         } else if (message.match(/http(s)?:\/\//g)) {
             if (rand(128) == 0) return randElement(constants.RESPONSES);
             return randElement(constants.LINK_RESPONSE);
-        } else if (message.includes("proof")) {
+        } else if (message.includes("proof") || message.includes("source") || message.includes("evidence")) {
             if (rand(128) == 0) return randElement(constants.INITIAL_MESSAGES); // Shake it up a little.
             return randElement(constants.PROOF_RESPONSE);
         } else {
