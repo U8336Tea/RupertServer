@@ -7,7 +7,6 @@ export const INITIAL_MESSAGES = [
     "Dear g\\*mers: Why are you Nazis?",
     "G\\*MERS ARE NOT WELCOME ON FACEBOOK!",
     "Begone, g\\*mers. You aren't welcome here.",
-    "The only difference between a g\\*mer and a b\\*g g\\*mer is the b\\*g g\\*mers are more honest.",
     "There is not one good g\\*mer. No, not one.",
     "AGAB ALL G\\*MERS ARE BASTARDS",
     "ALL G\\*MERS ARE NAZIS.",
@@ -16,7 +15,9 @@ export const INITIAL_MESSAGES = [
     "Dear g\\*mers: Go outside for once instead of hating minorities.",
     "Fortnite is objectively better than Mein Kraft because Mein Kraft was written by Hitler.",
     "G\\*mers: please shut the fuck up for once. I mean seriously, you never fucking shut up.",
-    "G\\*mers: Please get an actual argument so we don't have to keep fucking repeating ourselves."
+    "G\\*mers: Please get an actual argument so we don't have to keep fucking repeating ourselves.",
+    "I LOVE DEMOCRATS AND HATE REPUBLICANS",
+    "HATE HATE democrats and I love republicans."
 ]
 
 export const RESPONSES = [
@@ -85,7 +86,8 @@ export const RESPONSES = [
     "https://tenor.com/view/ben-shapiro-i-care-nothing-about-your-feelings-gif-11823578",
     "https://tenor.com/view/ben-shapiro-ben-shapiro-do-you-hear-yourself-confused-gif-15510728",
     "https://cdn.discordapp.com/attachments/743554243188752573/801709678471806976/image0.png",
-    "https://cdn.discordapp.com/attachments/743554243188752573/802780481178566716/video0.mov"
+    "https://cdn.discordapp.com/attachments/743554243188752573/802780481178566716/video0.mov",
+    "https://www.youtube.com/watch?v=k8QE4-BEy4E"
 ]
 
 export const TROLL_PASTA = `No. This is not a satire.

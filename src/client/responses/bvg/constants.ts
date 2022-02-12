@@ -108,6 +108,7 @@ export const RESPONSES = [
     "Susan my beloved",
     "Ow! My Freddy Fazballs!",
     "That's because I won and you're just mad.",
+    "Of course you have hair and pronouns :rofl:",
     "I am past the brink of insanity. I have met god and he is no match for me. I no longer fear death and I know that mortals like myself are meaningless in this universe.",
     `You seem to be addicted to g\\*mes. Try signing up to G\\*me Quitters to fight your addiction. 🙏 
     https://gamequitters.com/`,
@@ -138,7 +139,8 @@ export const PROOF_RESPONSE = [
     "https://www.thedartmouth.com/article/2018/10/dartmouth-study-finds-link-between-violent-video-games-and-aggressive-behavior",
     "susan is the love of my life",
     "Here's your proof https://www.youtube.com/watch?v=5t53TcKIlMc",
-    "This should be proof enough https://www.youtube.com/watch?v=EHmC2D0_Hdg"
+    "This should be proof enough https://www.youtube.com/watch?v=EHmC2D0_Hdg",
+    "It came to me in a dream."
 ]
 
 export const TROLL_PASTA = `No. This is not a satire.
