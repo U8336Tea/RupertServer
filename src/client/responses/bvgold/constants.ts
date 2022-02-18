@@ -85,6 +85,7 @@ export const RESPONSES = [
     "https://tenor.com/view/ben-shapiro-middle-finger-flip-off-gif-14274347",
     "https://tenor.com/view/ben-shapiro-i-care-nothing-about-your-feelings-gif-11823578",
     "https://tenor.com/view/ben-shapiro-ben-shapiro-do-you-hear-yourself-confused-gif-15510728",
+    "https://cdn.discordapp.com/attachments/943555478582083644/943555940693733376/IMG_6436.jpg",
     "https://cdn.discordapp.com/attachments/743554243188752573/801709678471806976/image0.png",
     "https://cdn.discordapp.com/attachments/743554243188752573/802780481178566716/video0.mov",
     "https://www.youtube.com/watch?v=k8QE4-BEy4E"
