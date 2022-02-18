@@ -77,7 +77,7 @@ This is the configuration for the entire server. Format:
 ## configs directory
 ```json
 {
-    "responderName": "bvg", // Currently this does nothing.
+    "responderName": "bvg", // The vocabulary name to be used if none is given.
     "timeoutInterval": 1000000, // The time in milliseconds which the responder can be idle before it destroys itself
     
     "rules": [ // The rules to which the responder responds, without being mentioned.
