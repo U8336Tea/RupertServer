@@ -101,6 +101,8 @@ export const RESPONSES = [
     "Ok idc",
     "Idgaf",
     "That's because I won and you're just mad.",
+    "You wouldn't survive a day in the COD lobbies!!",
+    "Of course you have hair and pronouns...",
     "I am past the brink of insanity. I have met god and he is no match for me. I no longer fear death and I know that mortals like myself are meaningless in this universe.",
     `You seem to be addicted to g\\*mes. Try signing up to G\\*me Quitters to fight your addiction. 🙏 
     https://gamequitters.com/`,
