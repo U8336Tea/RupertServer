@@ -79,7 +79,6 @@ export const RESPONSES = [
     "Yeah. Uh huh. Real funny.",
     TROLLFACE,
     "All i said was that i saw a lawnmower rigged up with a snow blower... but again it was pretty epic",
-    "Wait, this is the wrog channel.",
     "Cute insult, thought of that yourself?",
     "Go ahead g*mer, cope and seethe.",
     "What?",
@@ -99,6 +98,8 @@ export const RESPONSES = [
     "Did I ask for your opinion? No.",
     "k.",
     "Literally who cares",
+    "Ok idc",
+    "Idgaf",
     "That's because I won and you're just mad.",
     "I am past the brink of insanity. I have met god and he is no match for me. I no longer fear death and I know that mortals like myself are meaningless in this universe.",
     `You seem to be addicted to g\\*mes. Try signing up to G\\*me Quitters to fight your addiction. 🙏 
