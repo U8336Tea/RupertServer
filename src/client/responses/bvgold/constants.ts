@@ -1,7 +1,7 @@
 export const INITIAL_MESSAGES = [
     "G\\*ming was invented by Adolf Hitler. Prove me wrong.",
     "All g\\*mers are Nazis. This is a proven fact.",
-    "What's the difference between a g\\*mer and a pedophile? There is none! :rofl:",
+    "What's the difference between a g\\*mer and a pedophile? There *is* none! :rofl:",
     "@everyone Nazi g\\*mers can KISS MY ASS!",
     "Dear g\\*mers: No one likes you.",
     "Dear g\\*mers: Why are you Nazis?",
