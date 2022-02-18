@@ -36,6 +36,7 @@ export const RESPONSES = [
     "So?",
     "Keep crying, Nazi.",
     "Shut up, Nazi.",
+    "The only good Nazi is a dead Nazi.",
     "All g\\*mers are liars.",
     "No.",
     "Proof?",
