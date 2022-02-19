@@ -115,6 +115,7 @@ export const RESPONSES = [
     "https://tenor.com/view/ben-shapiro-hilarious-thats-gif-13286504",
     "https://tenor.com/view/fred-fred-the-movie-shocked-surprised-fred-figglehorn-gif-22939966",
     "https://media.discordapp.net/attachments/805265813959082004/812419161598459965/image0.gif",
+    "https://cdn.discordapp.com/attachments/928856479904194581/944429591697719328/yourmom.jpeg",
     "https://cdn.discordapp.com/attachments/364960295094845452/812785225330982942/Screenshot_2021-02-20-17-36-23.png",
     "https://cdn.discordapp.com/attachments/943555478582083644/943555940693733376/IMG_6436.jpg",
     "https://cdn.discordapp.com/attachments/784627509282603029/853125077163573248/personatale.mp4"
