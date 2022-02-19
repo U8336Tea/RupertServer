@@ -88,6 +88,7 @@ export const RESPONSES = [
     "I just received a note from your teacher and they are very mad at you for skipping school.",
     "That is literally not possible in any way.",
     "You just proved it yourself.",
+    "no u",
     "Shut up.",
     "Gonna cry?",
     "Keep crying, g\\*mer.",
