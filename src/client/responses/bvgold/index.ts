@@ -18,7 +18,7 @@ export default class implements MessageProvider {
         } else if (message.includes("kill myself")) {
             // Send then exit.
             throw new ErrorMessage("If you are really suicidal, please leave here and seek professional help. It is not fair to us or to yourself to put that on us.");
-        } else if (message.includes(" bot")) {
+        } else if (message.includes("bot ")) {
             if (rand(8) == 0) return randElement(constants.RESPONSES);
             if (this.botCount >= constants.BOT_RESPONSES.length) return randElement(constants.BOT_RESPONSES);
             return constants.BOT_RESPONSES[this.botCount++];
