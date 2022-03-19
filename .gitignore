@@ -3,3 +3,4 @@ node_modules/
 tls/
 config.json
 configs/
+.DS_Store
