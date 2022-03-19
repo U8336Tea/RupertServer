@@ -107,6 +107,8 @@ export class DiscordResponder extends EventEmitter {
     }
 
     private async respond(message: Message) {
+        if (this.destroyed) return;
+
         const author = message.member;
         for (const rule of this.blacklistRules) {
             if (rule.isMatch(RuleMember.fromDiscordJS(author))) {
@@ -149,8 +151,6 @@ export class DiscordResponder extends EventEmitter {
             channel.startTyping().catch(e => this.handleAPIError(e));
             await sleep(rand(this.maxTypeTime, this.minTypeTime) * 1000);
             channel.stopTyping();
-
-            if (this.destroyed) return;
 
             try {
                 await message.reply(reply, opts);
