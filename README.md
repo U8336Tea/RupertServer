@@ -22,6 +22,17 @@ used to change out vocabularies.
 
 Vocabularies are loaded from `client/responses/{name}/index.js`.
 
+# SLASH COMMANDS
+For most people, slash commands will be what you want to use. These are
+subject to change when I feel like (probably never).
+
+## crapsing
+Starts Rupert on the current channel. Takes an optional `name` argument, the
+vocabulary name.
+
+## crapnaked
+Stops Rupert on the current channel.
+
 # DM COMMANDS
 Keep in mind that for these commands, \[square brackets\] indicate required
 arguments and (parentheses) indicate optional arguments.
