@@ -60,6 +60,11 @@ Usage: `target [channel id] [rule type] [id]`
 Prevents Rupert from responding to anyone who does NOT match the specified rule.
 Rule type can be either user or role.
 
+## stfu
+Usage: `stfu`
+
+Forcibly shuts down Rupert. This should only be used when Rupert glitches out in some way.
+
 # CONFIGURATION
 ## config.json
 This is the configuration for the entire server. Format:
