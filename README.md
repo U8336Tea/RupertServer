@@ -93,7 +93,7 @@ This is the configuration for the entire server. Format:
 ## configs directory
 ```json
 {
-    "responderName": "bvg", // The vocabulary name to be used if none is given.
+    "vocabulary": "bvg", // The vocabulary name to be used if none is given.
     "timeoutInterval": 1000000, // The time in milliseconds which the responder can be idle before it destroys itself
     "minTypeTime": 4, // The minimum time in seconds the responder will take to type
     "maxTypeTime": 10, // The maximum time in seconds the responder will take to type
