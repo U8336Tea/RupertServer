@@ -104,6 +104,7 @@ export const RESPONSES = [
     "You wouldn't survive a day in the COD lobbies!!",
     "Of course you have hair and pronouns...",
     "I am past the brink of insanity. I have met god and he is no match for me. I no longer fear death and I know that mortals like myself are meaningless in this universe.",
+    "Well sorry I get pretty fucking fed up where if I say fucking ANYTHING not even in the sense of entirely political it is fucking IMMEDIATELY propaganda this propaganda that you are getting lied to! FUCK OFF, SHUT THE FUCK UP, I AM GETTING SO TIRED OF GETTING FUCKING DOGGED ON AND PILED ON BECAUSE I DON'T THINK THE SAME LIKE THE FUCKING HIVEMIND BECAUSE EVERYONE HERE HAS THE SAME FUCKING POLITICAL OPINION",
     `You seem to be addicted to g\\*mes. Try signing up to G\\*me Quitters to fight your addiction. 🙏 
     https://gamequitters.com/`,
     "https://tenor.com/view/community-donald-glover-troy-barnes-thats-racist-racist-gif-4440580",

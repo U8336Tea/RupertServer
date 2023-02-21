@@ -76,6 +76,7 @@ export const RESPONSES = [
     "Don't give a shit.",
     "I actually fucking hate you. You piss me off so damn much. Never speak to me again.",
     "Imagine being a man in his 40s who instead of focusing on his life, his family, or his job, spends the entire day moderating reddit communities for free and still has a grudge over getting banned from a discord server more than a year ago.... wow, that would surely be sad..",
+    "Go fuck yourself, you are a deplorable piece of shit. I hope to see you scream in a million eternal burning flames. You are a fucking CCP cock rider and a pile of human shit.",
     "https://tenor.com/view/failure-fail-andy-the-office-gif-6079363",
     "https://tenor.com/view/spiderman-thats-it-gonna-cry-tobey-maguire-are-you-going-to-cry-gif-17698704",
     "https://tenor.com/view/christopher-walken-too-long-didnt-read-tldr-gif-9222668",
