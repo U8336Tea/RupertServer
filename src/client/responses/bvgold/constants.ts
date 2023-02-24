@@ -17,7 +17,8 @@ export const INITIAL_MESSAGES = [
     "G\\*mers: please shut the fuck up for once. I mean seriously, you never fucking shut up.",
     "G\\*mers: Please get an actual argument so we don't have to keep fucking repeating ourselves.",
     "I LOVE DEMOCRATS AND HATE REPUBLICANS",
-    "HATE HATE democrats and I love republicans."
+    "HATE HATE democrats and I love republicans.",
+    'Im done you uptight, pussy, aggressive, hateful, judge-full fuck, see you never bitch, this server is toxic af, and I want everyone to see: When I said "some of them" I was refering to how not all of sams comments were directly harmful, not that any of them were okay. And secondly my idea was to add some rules to prevent hate speech, etc..., even if it was already a rule for discord, maybe we sould make it more apparent since it didnt stop sam, I did nothing fucking wrong, and spent my time trying to do cool projects for my alliance I am being accused of victimizing myself, yet i spent time making sure my text wasnt going to offend people. I would have surely been more friendly if you had not come off toxic, I made amends with Akira (i think), but theres no point in trying with you sick fucks, and a special shout-out to my friend Abroad who introduced me to this wretched sever, fuck you too, oh yeah, and reptile, sorry abou t you but im spilling all the beans, wew, reptile sympathized with me and said you were power tripping, etc... Im leaving for a while and coming back in a bit (maybe a week) just to see if it got any less toxic, but as long as yall are here it probably wont: Fuck you pussies, fuck wew, and mugi, and no matter how sick the things sam said were, im now thinking he had a point about you shits. Do you feel that rumble, yeah its me doin your mom FUCK YOU HAHAHAHAHHA'
 ]
 
 export const RESPONSES = [
